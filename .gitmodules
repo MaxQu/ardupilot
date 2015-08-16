@@ -1,9 +1,12 @@
 [submodule "modules/PX4Firmware"]
 	path = modules/PX4Firmware
-	url = git://github.com/diydrones/PX4Firmware.git
+	url = git://github.com/MaxQu/PX4Firmware.git
+	branch = master_gesture
 [submodule "modules/PX4NuttX"]
 	path = modules/PX4NuttX
-	url = git://github.com/diydrones/PX4NuttX.git
+	url = git://github.com/MaxQu/PX4NuttX.git
+	branch = master_gesture
 [submodule "modules/uavcan"]
 	path = modules/uavcan
-	url = git://github.com/diydrones/uavcan.git
+	url = git://github.com/MaxQu/uavcan.git
+	branch = master_gesture
