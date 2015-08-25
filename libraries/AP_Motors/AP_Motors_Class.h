@@ -3,12 +3,12 @@
 #ifndef __AP_MOTORS_CLASS_H__
 #define __AP_MOTORS_CLASS_H__
 
-#include <AP_Common.h>
-#include <AP_Progmem.h>
-#include <AP_Math.h>        // ArduPilot Mega Vector/Matrix math Library
-#include <AP_Notify.h>      // Notify library
-#include <RC_Channel.h>     // RC Channel Library
-#include <Filter.h>         // filter library
+#include <AP_Common/AP_Common.h>
+#include <AP_Progmem/AP_Progmem.h>
+#include <AP_Math/AP_Math.h>        // ArduPilot Mega Vector/Matrix math Library
+#include <AP_Notify/AP_Notify.h>      // Notify library
+#include <RC_Channel/RC_Channel.h>     // RC Channel Library
+#include <Filter/Filter.h>         // filter library
 
 // offsets for motors in motor_out, _motor_filtered and _motor_to_channel_map arrays
 #define AP_MOTORS_MOT_1 0
@@ -153,6 +153,7 @@ protected:
     float               _throttle_control_input;    // desired throttle (thrust) control from attitude controller, 0-1000
     float               _yaw_control_input;         // desired yaw control from attitude controller, +/- 4500
     float               _throttle_pwm_scalar;       // scalar used to convert throttle channel pwm range into 0-1000 range, ~0.8 - 1.0
+    float               _rpy_pwm_scalar;            // scaler used to convert roll, pitch, yaw inputs to pwm range
     uint16_t            _loop_rate;                 // rate at which output() function is called (normally 400hz)
     uint16_t            _speed_hz;                  // speed in hz to send updates to motors
     int16_t             _throttle_radio_min;        // minimum radio channel pwm

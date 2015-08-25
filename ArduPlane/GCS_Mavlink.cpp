@@ -5,8 +5,6 @@
 // default sensors are present and healthy: gyro, accelerometer, barometer, rate_control, attitude_stabilization, yaw_position, altitude control, x/y position control, motor_control
 #define MAVLINK_SENSOR_PRESENT_DEFAULT (MAV_SYS_STATUS_SENSOR_3D_GYRO | MAV_SYS_STATUS_SENSOR_3D_ACCEL | MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE | MAV_SYS_STATUS_SENSOR_ANGULAR_RATE_CONTROL | MAV_SYS_STATUS_SENSOR_ATTITUDE_STABILIZATION | MAV_SYS_STATUS_SENSOR_YAW_POSITION | MAV_SYS_STATUS_SENSOR_Z_ALTITUDE_CONTROL | MAV_SYS_STATUS_SENSOR_XY_POSITION_CONTROL | MAV_SYS_STATUS_SENSOR_MOTOR_OUTPUTS | MAV_SYS_STATUS_AHRS)
 
-#define HAVE_PAYLOAD_SPACE(chan, id) (comm_get_txspace(chan) >= MAVLINK_NUM_NON_PAYLOAD_BYTES+MAVLINK_MSG_ID_ ## id ## _LEN)
-
 void Plane::send_heartbeat(mavlink_channel_t chan)
 {
     uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
@@ -69,9 +67,11 @@ void Plane::send_heartbeat(mavlink_channel_t chan)
         base_mode |= MAV_MODE_FLAG_MANUAL_INPUT_ENABLED;
     }
 
+#if HIL_SUPPORT
     if (g.hil_mode == 1) {
         base_mode |= MAV_MODE_FLAG_HIL_ENABLED;
     }
+#endif
 
     // we are armed if we are not initialising
     if (control_mode != INITIALISING && hal.util->get_soft_armed()) {
@@ -366,6 +366,7 @@ void Plane::send_servo_out(mavlink_channel_t chan)
 
 void Plane::send_radio_out(mavlink_channel_t chan)
 {
+#if HIL_SUPPORT
     if (g.hil_mode==1 && !g.hil_servos) {
         mavlink_msg_servo_output_raw_send(
             chan,
@@ -381,6 +382,7 @@ void Plane::send_radio_out(mavlink_channel_t chan)
             RC_Channel::rc_channel(7)->radio_out);
         return;
     }
+#endif
     mavlink_msg_servo_output_raw_send(
         chan,
         micros(),
@@ -416,14 +418,16 @@ void Plane::send_vfr_hud(mavlink_channel_t chan)
 /*
   keep last HIL_STATE message to allow sending SIM_STATE
  */
+#if HIL_SUPPORT
 static mavlink_hil_state_t last_hil_state;
+#endif
 
 // report simulator state
 void Plane::send_simstate(mavlink_channel_t chan)
 {
 #if CONFIG_HAL_BOARD == HAL_BOARD_SITL
     sitl.simstate_send(chan);
-#else
+#elif HIL_SUPPORT
     if (g.hil_mode == 1) {
         mavlink_msg_simstate_send(chan,
                                   last_hil_state.roll,
@@ -564,15 +568,10 @@ bool Plane::telemetry_delayed(mavlink_channel_t chan)
     return true;
 }
 
-// check if a message will fit in the payload space available
-#define CHECK_PAYLOAD_SIZE(id) if (txspace < MAVLINK_NUM_NON_PAYLOAD_BYTES+MAVLINK_MSG_ID_ ## id ## _LEN) return false
-#define CHECK_PAYLOAD_SIZE2(id) if (!HAVE_PAYLOAD_SPACE(chan, id)) return false
 
 // try to send a message, return false if it won't fit in the serial tx buffer
 bool GCS_MAVLINK::try_send_message(enum ap_message id)
 {
-    uint16_t txspace = comm_get_txspace(chan);
-
     if (plane.telemetry_delayed(chan)) {
         return false;
     }
@@ -637,10 +636,12 @@ bool GCS_MAVLINK::try_send_message(enum ap_message id)
         break;
 
     case MSG_SERVO_OUT:
+#if HIL_SUPPORT
         if (plane.g.hil_mode == 1) {
             CHECK_PAYLOAD_SIZE(RC_CHANNELS_SCALED);
             plane.send_servo_out(chan);
         }
+#endif
         break;
 
     case MSG_RADIO_IN:
@@ -790,6 +791,15 @@ bool GCS_MAVLINK::try_send_message(enum ap_message id)
         CHECK_PAYLOAD_SIZE(VIBRATION);
         send_vibration(plane.ins);
         break;
+
+    case MSG_RPM:
+        // unused
+        break;
+
+    case MSG_MISSION_ITEM_REACHED:
+        CHECK_PAYLOAD_SIZE(MISSION_ITEM_REACHED);
+        mavlink_msg_mission_item_reached_send(chan, mission_item_reached_index);
+        break;
     }
     return true;
 }
@@ -937,6 +947,7 @@ GCS_MAVLINK::data_stream_send(void)
     if (plane.gcs_out_of_time) return;
 
     if (plane.in_mavlink_delay) {
+#if HIL_SUPPORT
         if (plane.g.hil_mode == 1) {
             // in HIL we need to keep sending servo values to ensure
             // the simulator doesn't pause, otherwise our sensor
@@ -948,6 +959,7 @@ GCS_MAVLINK::data_stream_send(void)
                 send_message(MSG_RADIO_OUT);
             }
         }
+#endif
         // don't send any other stream types while in the delay callback
         return;
     }
@@ -1606,6 +1618,7 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
 
     case MAVLINK_MSG_ID_HIL_STATE:
     {
+#if HIL_SUPPORT
         if (plane.g.hil_mode != 1) {
             break;
         }
@@ -1656,6 +1669,7 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
              wrap_PI(fabsf(packet.yaw - plane.ahrs.yaw)) > ToRad(plane.g.hil_err_limit))) {
             plane.ahrs.reset_attitude(packet.roll, packet.pitch, packet.yaw);
         }
+#endif
         break;
     }
 
@@ -1777,6 +1791,19 @@ void Plane::gcs_send_message(enum ap_message id)
     for (uint8_t i=0; i<num_gcs; i++) {
         if (gcs[i].initialised) {
             gcs[i].send_message(id);
+        }
+    }
+}
+
+/*
+ *  send a mission item reached message and load the index before the send attempt in case it may get delayed
+ */
+void Plane::gcs_send_mission_item_reached_message(uint16_t mission_index)
+{
+    for (uint8_t i=0; i<num_gcs; i++) {
+        if (gcs[i].initialised) {
+            gcs[i].mission_item_reached_index = mission_index;
+            gcs[i].send_message(MSG_MISSION_ITEM_REACHED);
         }
     }
 }

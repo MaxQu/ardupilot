@@ -1,13 +1,13 @@
 /// -*- tab-width: 4; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
-#include <AP_HAL.h>
+#include <AP_HAL/AP_HAL.h>
 #if CONFIG_HAL_BOARD == HAL_BOARD_PX4 || CONFIG_HAL_BOARD == HAL_BOARD_VRBRAIN
 
 #include "AP_InertialSensor_PX4.h"
 
 const extern AP_HAL::HAL& hal;
 
-#include <DataFlash.h>
+#include <DataFlash/DataFlash.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -103,6 +103,7 @@ bool AP_InertialSensor_PX4::_init_sensor(void)
 
         switch(devid) {
             case DRV_GYR_DEVTYPE_MPU6000:
+            case DRV_GYR_DEVTYPE_MPU9250:
                 // hardware LPF off
                 ioctl(fd, GYROIOCSHWLOWPASS, 256);
                 // khz sampling
@@ -140,6 +141,7 @@ bool AP_InertialSensor_PX4::_init_sensor(void)
 
         switch(devid) {
             case DRV_ACC_DEVTYPE_MPU6000:
+            case DRV_ACC_DEVTYPE_MPU9250:
                 // hardware LPF off
                 ioctl(fd, ACCELIOCSHWLOWPASS, 256);
                 // khz sampling

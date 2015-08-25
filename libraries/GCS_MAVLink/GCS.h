@@ -7,16 +7,21 @@
 #ifndef __GCS_H
 #define __GCS_H
 
-#include <AP_HAL.h>
-#include <AP_Common.h>
-#include <GCS_MAVLink.h>
-#include <DataFlash.h>
-#include <AP_Mission.h>
-#include "../AP_BattMonitor/AP_BattMonitor.h"
+#include <AP_HAL/AP_HAL.h>
+#include <AP_Common/AP_Common.h>
+#include "GCS_MAVLink.h"
+#include <DataFlash/DataFlash.h>
+#include <AP_Mission/AP_Mission.h>
+#include <AP_BattMonitor/AP_BattMonitor.h>
 #include <stdint.h>
-#include <MAVLink_routing.h>
-#include "../AP_SerialManager/AP_SerialManager.h"
-#include "../AP_Mount/AP_Mount.h"
+#include "MAVLink_routing.h"
+#include <AP_SerialManager/AP_SerialManager.h>
+#include <AP_Mount/AP_Mount.h>
+
+// check if a message will fit in the payload space available
+#define HAVE_PAYLOAD_SPACE(chan, id) (comm_get_txspace(chan) >= MAVLINK_NUM_NON_PAYLOAD_BYTES+MAVLINK_MSG_ID_ ## id ## _LEN)
+#define CHECK_PAYLOAD_SIZE(id) if (comm_get_txspace(chan) < MAVLINK_NUM_NON_PAYLOAD_BYTES+MAVLINK_MSG_ID_ ## id ## _LEN) return false
+#define CHECK_PAYLOAD_SIZE2(id) if (!HAVE_PAYLOAD_SPACE(chan, id)) return false
 
 //  GCS Message ID's
 /// NOTE: to ensure we never block on sending MAVLink messages
@@ -60,6 +65,8 @@ enum ap_message {
     MSG_LOCAL_POSITION,
     MSG_PID_TUNING,
     MSG_VIBRATION,
+    MSG_RPM,
+    MSG_MISSION_ITEM_REACHED,
     MSG_RETRY_DEFERRED // this must be last
 };
 
@@ -123,6 +130,9 @@ public:
     // last time we got a non-zero RSSI from RADIO_STATUS
     static uint32_t last_radio_status_remrssi_ms;
 
+    // mission item index to be sent on queued msg, delayed or not
+    uint16_t mission_item_reached_index = AP_MISSION_CMD_INDEX_NONE;
+
     // common send functions
     void send_meminfo(void);
     void send_power_status(void);
@@ -138,10 +148,9 @@ public:
 #if AP_AHRS_NAVEKF_AVAILABLE
     void send_opticalflow(AP_AHRS_NavEKF &ahrs, const OpticalFlow &optflow);
 #endif
-    void send_autopilot_version(void) const;
+    void send_autopilot_version() const;
     void send_local_position(const AP_AHRS &ahrs) const;
     void send_vibration(const AP_InertialSensor &ins) const;
-    void send_mission_item_reached(uint16_t seq) const;
 
     // return a bitmap of active channels. Used by libraries to loop
     // over active channels to send to all active channels    

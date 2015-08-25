@@ -6,19 +6,20 @@
 #ifndef DataFlash_h
 #define DataFlash_h
 
-#include <AP_HAL.h>
-#include <AP_Common.h>
-#include <AP_Param.h>
-#include <AP_GPS.h>
-#include <AP_InertialSensor.h>
-#include <AP_Baro.h>
-#include <AP_AHRS.h>
-#include <AP_Vehicle.h>
-#include <AP_Mission.h>
-#include "../AP_Airspeed/AP_Airspeed.h"
-#include "../AP_BattMonitor/AP_BattMonitor.h"
+#include <AP_HAL/AP_HAL.h>
+#include <AP_Common/AP_Common.h>
+#include <AP_Param/AP_Param.h>
+#include <AP_GPS/AP_GPS.h>
+#include <AP_InertialSensor/AP_InertialSensor.h>
+#include <AP_Baro/AP_Baro.h>
+#include <AP_AHRS/AP_AHRS.h>
+#include <AP_Vehicle/AP_Vehicle.h>
+#include <AP_Mission/AP_Mission.h>
+#include <AP_Airspeed/AP_Airspeed.h>
+#include <AP_BattMonitor/AP_BattMonitor.h>
+#include <AP_RPM/AP_RPM.h>
 #include <stdint.h>
-#include <DataFlash_Backend.h>
+#include "DataFlash_Backend.h"
 
 #if CONFIG_HAL_BOARD == HAL_BOARD_PX4
 #include <uORB/topics/esc_status.h>
@@ -96,6 +97,7 @@ public:
     void Log_Write_Mission_Cmd(const AP_Mission &mission,
                                const AP_Mission::Mission_Command &cmd);
     void Log_Write_Origin(uint8_t origin_type, const Location &loc);
+    void Log_Write_RPM(const AP_RPM &rpm_sensor);
 
     // This structure provides information on the internal member data of a PID for logging purposes
     struct PID_Info {
@@ -184,24 +186,7 @@ struct PACKED log_GPS {
     uint32_t ground_speed;
     int32_t  ground_course;
     float    vel_z;
-};
-
-struct PACKED log_GPS2 {
-    LOG_PACKET_HEADER;
-    uint64_t time_us;
-    uint8_t  status;
-    uint32_t gps_week_ms;
-    uint16_t gps_week;
-    uint8_t  num_sats;
-    uint16_t hdop;
-    int32_t  latitude;
-    int32_t  longitude;
-    int32_t  altitude;
-    uint32_t ground_speed;
-    int32_t  ground_course;
-    float    vel_z;
-    uint8_t  dgps_numch;
-    uint32_t dgps_age;
+    uint8_t  used;
 };
 
 struct PACKED log_Message {
@@ -617,6 +602,13 @@ struct PACKED log_ORGN {
     int32_t altitude;
 };
 
+struct PACKED log_RPM {
+    LOG_PACKET_HEADER;
+    uint64_t time_us;
+    float rpm1;
+    float rpm2;
+};
+
 /*
 Format characters in the format string for binary log messages
   b   : int8_t
@@ -647,7 +639,7 @@ Format characters in the format string for binary log messages
     { LOG_PARAMETER_MSG, sizeof(log_Parameter), \
       "PARM", "QNf",        "TimeUS,Name,Value" },    \
     { LOG_GPS_MSG, sizeof(log_GPS), \
-      "GPS",  "QBIHBcLLeeEef", "TimeUS,Status,GMS,GWk,NSats,HDop,Lat,Lng,RAlt,Alt,Spd,GCrs,VZ" }, \
+      "GPS",  "QBIHBcLLeeEefB", "TimeUS,Status,GMS,GWk,NSats,HDop,Lat,Lng,RAlt,Alt,Spd,GCrs,VZ,U" }, \
     { LOG_IMU_MSG, sizeof(log_IMU), \
       "IMU",  "QffffffIIfBB",     "TimeUS,GyrX,GyrY,GyrZ,AccX,AccY,AccZ,ErrG,ErrA,Temp,GyHlt,AcHlt" }, \
     { LOG_MESSAGE_MSG, sizeof(log_Message), \
@@ -679,8 +671,8 @@ Format characters in the format string for binary log messages
 
 // messages for more advanced boards
 #define LOG_EXTRA_STRUCTURES \
-    { LOG_GPS2_MSG, sizeof(log_GPS2), \
-      "GPS2",  "QBIHBcLLeEefBI", "TimeUS,Status,GMS,GWk,NSats,HDp,Lat,Lng,Alt,Spd,GCrs,VZ,DSc,DAg" }, \
+    { LOG_GPS2_MSG, sizeof(log_GPS), \
+      "GPS2",  "QBIHBcLLeeEefB", "TimeUS,Status,GMS,GWk,NSats,HDop,Lat,Lng,RAlt,Alt,Spd,GCrs,VZ,U" }, \
     { LOG_IMU2_MSG, sizeof(log_IMU), \
       "IMU2",  "QffffffIIfBB",     "TimeUS,GyrX,GyrY,GyrZ,AccX,AccY,AccZ,ErrG,ErrA,Temp,GyHlt,AcHlt" }, \
     { LOG_IMU3_MSG, sizeof(log_IMU), \
@@ -768,7 +760,9 @@ Format characters in the format string for binary log messages
     { LOG_IMUDT3_MSG, sizeof(log_IMUDT), \
       "IMT3","Qffffffff","TimeUS,DelT,DelvT,DelAX,DelAY,DelAZ,DelVX,DelVY,DelVZ" }, \
     { LOG_ORGN_MSG, sizeof(log_ORGN), \
-      "ORGN","QBLLe","TimeUS,Type,Lat,Lng,Alt" }
+      "ORGN","QBLLe","TimeUS,Type,Lat,Lng,Alt" }, \
+    { LOG_RPM_MSG, sizeof(log_RPM), \
+      "RPM",  "Qff", "TimeUS,rpm1,rpm2" }
 
 #if HAL_CPU_CLASS >= HAL_CPU_CLASS_75
 #define LOG_COMMON_STRUCTURES LOG_BASE_STRUCTURES, LOG_EXTRA_STRUCTURES
@@ -783,6 +777,7 @@ enum LogMessages {
     LOG_FORMAT_MSG = 128,
     LOG_PARAMETER_MSG,
     LOG_GPS_MSG,
+    LOG_GPS2_MSG,
     LOG_IMU_MSG,
     LOG_MESSAGE_MSG,
     LOG_RCIN_MSG,
@@ -796,7 +791,6 @@ enum LogMessages {
     LOG_EKF2_MSG,
     LOG_EKF3_MSG,
     LOG_EKF4_MSG,
-    LOG_GPS2_MSG,
     LOG_CMD_MSG,
     LOG_RADIO_MSG,
     LOG_ATRP_MSG,
@@ -842,7 +836,8 @@ enum LogMessages {
     LOG_IMUDT_MSG,
     LOG_IMUDT2_MSG,
     LOG_IMUDT3_MSG,
-    LOG_ORGN_MSG
+    LOG_ORGN_MSG,
+    LOG_RPM_MSG
 };
 
 enum LogOriginType {

@@ -36,9 +36,9 @@ void Copter::get_pilot_desired_lean_angles(float roll_in, float pitch_in, float 
     pitch_out = pitch_in;
 }
 
-// get_pilot_desired_heading - transform pilot's yaw input into a desired heading
-// returns desired angle in centi-degrees
-// To-Do: return heading as a float?
+// get_pilot_desired_heading - transform pilot's yaw input into a
+// desired yaw rate
+// returns desired yaw rate in centi-degrees per second
 float Copter::get_pilot_desired_yaw_rate(int16_t stick_angle)
 {
     // convert pilot input to the desired yaw rate
@@ -307,4 +307,13 @@ void Copter::update_poscon_alt_max()
 
     // pass limit to pos controller
     pos_control.set_alt_max(alt_limit_cm);
+}
+
+// rotate vector from vehicle's perspective to North-East frame
+void Copter::rotate_body_frame_to_NE(float &x, float &y)
+{
+    float ne_x = x*ahrs.cos_yaw() - y*ahrs.sin_yaw();
+    float ne_y = x*ahrs.sin_yaw() + y*ahrs.cos_yaw();
+    x = ne_x;
+    y = ne_y;
 }

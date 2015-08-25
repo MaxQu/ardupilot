@@ -7,7 +7,7 @@
    given directory
  */
 
-#include <AP_HAL.h>
+#include <AP_HAL/AP_HAL.h>
 
 #if HAL_OS_POSIX_IO
 #include "DataFlash.h"
@@ -20,11 +20,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <assert.h>
-#include <AP_Math.h>
+#include <AP_Math/AP_Math.h>
 #include <stdio.h>
 #include <time.h>
 #include <dirent.h>
-#include "../AP_HAL/utility/RingBuffer.h"
+#include <AP_HAL/utility/RingBuffer.h>
 
 extern const AP_HAL::HAL& hal;
 
@@ -38,6 +38,7 @@ DataFlash_File::DataFlash_File(DataFlash_Class &front, const char *log_directory
     DataFlash_Backend(front),
     _write_fd(-1),
     _read_fd(-1),
+    _read_fd_log_num(0),
     _read_offset(0),
     _write_offset(0),
     _initialised(false),

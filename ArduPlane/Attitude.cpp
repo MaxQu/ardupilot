@@ -995,6 +995,7 @@ void Plane::set_servos(void)
     obc.check_crash_plane();
 #endif
 
+#if HIL_SUPPORT
     if (g.hil_mode == 1) {
         // get the servos to the GCS immediately for HIL
         if (comm_get_txspace(MAVLINK_COMM_0) >= 
@@ -1005,6 +1006,7 @@ void Plane::set_servos(void)
             return;
         }
     }
+#endif
 
     // send values to the PWM timers for output
     // ----------------------------------------
@@ -1080,6 +1082,7 @@ void Plane::update_load_factor(void)
         // our airspeed is below the minimum airspeed. Limit roll to
         // 25 degrees
         nav_roll_cd = constrain_int32(nav_roll_cd, -2500, 2500);
+        roll_limit_cd = constrain_int32(roll_limit_cd, -2500, 2500);
     } else if (max_load_factor < aerodynamic_load_factor) {
         // the demanded nav_roll would take us past the aerodymamic
         // load limit. Limit our roll to a bank angle that will keep
@@ -1092,5 +1095,6 @@ void Plane::update_load_factor(void)
             roll_limit = 2500;
         }
         nav_roll_cd = constrain_int32(nav_roll_cd, -roll_limit, roll_limit);
+        roll_limit_cd = constrain_int32(roll_limit_cd, -roll_limit, roll_limit);
     }    
 }

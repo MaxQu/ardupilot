@@ -21,7 +21,7 @@
 #define _SIM_GAZEBO_H
 
 #include "SIM_Aircraft.h"
-#include <utility/Socket.h>
+#include <AP_HAL/utility/Socket.h>
 
 /*
   Gazebo simulator
@@ -64,7 +64,6 @@ private:
     void recv_fdm(const struct sitl_input &input);
     void send_servos(const struct sitl_input &input);
 
-    bool heli_servos;
     double last_timestamp;
     SocketAPM sock;
 };

@@ -14,13 +14,13 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <AP_Math.h>
-#include <AP_HAL.h>
+#include <AP_Math/AP_Math.h>
+#include <AP_HAL/AP_HAL.h>
 
 #if CONFIG_HAL_BOARD == HAL_BOARD_LINUX
 
 #include "AP_Compass_AK8963.h"
-#include "../AP_InertialSensor/AP_InertialSensor_MPU9250.h"
+#include <AP_InertialSensor/AP_InertialSensor_MPU9250.h>
 
 #define READ_FLAG                   0x80
 #define MPUREG_I2C_SLV0_ADDR        0x25
@@ -202,10 +202,11 @@ void AP_Compass_AK8963::read()
         return;
     }
 
+    hal.scheduler->suspend_timer_procs();
     auto field = _get_filtered_field();
-    _make_factory_sensitivity_adjustment(field);
-
     _reset_filter();
+    hal.scheduler->resume_timer_procs();
+    _make_factory_sensitivity_adjustment(field);
 
 #if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_BEBOP
     field.rotate(ROTATION_YAW_90);
@@ -237,30 +238,31 @@ void AP_Compass_AK8963::_make_factory_sensitivity_adjustment(Vector3f& field) co
 
 void AP_Compass_AK8963::_update()
 {
+    struct AP_AK8963_SerialBus::raw_value rv;
+    float mag_x, mag_y, mag_z;
+
     if (hal.scheduler->micros() - _last_update_timestamp < 10000) {
-        return;
+        goto end;
     }
 
     if (!_sem_take_nonblocking()) {
-        return;
+        goto end;
     }
-
-    struct AP_AK8963_SerialBus::raw_value rv;
 
     _bus->read_raw(&rv);
 
     /* Check for overflow. See AK8963's datasheet, section
      * 6.4.3.6 - Magnetic Sensor Overflow. */
     if ((rv.st2 & 0x08)) {
-        return;
+        goto fail;
     }
 
-    float mag_x = (float) rv.val[0];
-    float mag_y = (float) rv.val[1];
-    float mag_z = (float) rv.val[2];
+    mag_x = (float) rv.val[0];
+    mag_y = (float) rv.val[1];
+    mag_z = (float) rv.val[2];
 
     if (is_zero(mag_x) && is_zero(mag_y) && is_zero(mag_z)) {
-        return;
+        goto fail;
     }
 
     _mag_x_accum += mag_x;
@@ -275,7 +277,10 @@ void AP_Compass_AK8963::_update()
     }
 
     _last_update_timestamp = hal.scheduler->micros();
+fail:
     _sem_give();
+end:
+    return;
 }
 
 bool AP_Compass_AK8963::_check_id()

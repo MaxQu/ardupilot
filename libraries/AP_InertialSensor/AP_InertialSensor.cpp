@@ -1,13 +1,13 @@
 /// -*- tab-width: 4; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
-#include <AP_Progmem.h>
+#include <AP_Progmem/AP_Progmem.h>
 #include "AP_InertialSensor.h"
 
-#include <AP_Common.h>
-#include <AP_HAL.h>
-#include <AP_Notify.h>
-#include <AP_Vehicle.h>
-#include <AP_Math.h>
+#include <AP_Common/AP_Common.h>
+#include <AP_HAL/AP_HAL.h>
+#include <AP_Notify/AP_Notify.h>
+#include <AP_Vehicle/AP_Vehicle.h>
+#include <AP_Math/AP_Math.h>
 
 /*
   enable TIMING_DEBUG to track down scheduling issues with the main
@@ -145,21 +145,21 @@ const AP_Param::GroupInfo AP_InertialSensor::var_info[] PROGMEM = {
     // @DisplayName: Accelerometer offsets of X axis
     // @Description: Accelerometer offsets of X axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
 
     // @Param: ACCOFFS_Y
     // @DisplayName: Accelerometer offsets of Y axis
     // @Description: Accelerometer offsets of Y axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
 
     // @Param: ACCOFFS_Z
     // @DisplayName: Accelerometer offsets of Z axis
     // @Description: Accelerometer offsets of Z axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
     AP_GROUPINFO("ACCOFFS",     13, AP_InertialSensor, _accel_offset[0], 0),
 
@@ -187,21 +187,21 @@ const AP_Param::GroupInfo AP_InertialSensor::var_info[] PROGMEM = {
     // @DisplayName: Accelerometer2 offsets of X axis
     // @Description: Accelerometer2 offsets of X axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
 
     // @Param: ACC2OFFS_Y
     // @DisplayName: Accelerometer2 offsets of Y axis
     // @Description: Accelerometer2 offsets of Y axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
 
     // @Param: ACC2OFFS_Z
     // @DisplayName: Accelerometer2 offsets of Z axis
     // @Description: Accelerometer2 offsets of Z axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
     AP_GROUPINFO("ACC2OFFS",    15, AP_InertialSensor, _accel_offset[1],  0),
 #endif
@@ -230,21 +230,21 @@ const AP_Param::GroupInfo AP_InertialSensor::var_info[] PROGMEM = {
     // @DisplayName: Accelerometer3 offsets of X axis
     // @Description: Accelerometer3 offsets of X axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
 
     // @Param: ACC3OFFS_Y
     // @DisplayName: Accelerometer3 offsets of Y axis
     // @Description: Accelerometer3 offsets of Y axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
 
     // @Param: ACC3OFFS_Z
     // @DisplayName: Accelerometer3 offsets of Z axis
     // @Description: Accelerometer3 offsets of Z axis. This is setup using the acceleration calibration or level operations
     // @Units: m/s/s
-    // @Range: -300 300
+    // @Range: -3.5 3.5
     // @User: Advanced
     AP_GROUPINFO("ACC3OFFS",    17, AP_InertialSensor, _accel_offset[2],  0),
 #endif
@@ -264,6 +264,30 @@ const AP_Param::GroupInfo AP_InertialSensor::var_info[] PROGMEM = {
     // @Range: 0 127
     // @User: Advanced
     AP_GROUPINFO("ACCEL_FILTER", 19, AP_InertialSensor, _accel_filter_cutoff,  DEFAULT_ACCEL_FILTER),
+
+    // @Param: USE
+    // @DisplayName: Use first IMU for attitude, velocity and position estimates
+    // @Description: Use first IMU for attitude, velocity and position estimates
+    // @Values: 0:Disabled,1:Enabled
+    // @User: Advanced
+    AP_GROUPINFO("USE", 20, AP_InertialSensor, _use[0],  1),
+
+#if INS_MAX_INSTANCES > 2
+    // @Param: USE2
+    // @DisplayName: Use second IMU for attitude, velocity and position estimates
+    // @Description: Use second IMU for attitude, velocity and position estimates
+    // @Values: 0:Disabled,1:Enabled
+    // @User: Advanced
+    AP_GROUPINFO("USE2", 21, AP_InertialSensor, _use[1],  1),
+#endif
+#if INS_MAX_INSTANCES > 3
+    // @Param: USE3
+    // @DisplayName: Use third IMU for attitude, velocity and position estimates
+    // @Description: Use third IMU for attitude, velocity and position estimates
+    // @Values: 0:Disabled,1:Enabled
+    // @User: Advanced
+    AP_GROUPINFO("USE3", 21, AP_InertialSensor, _use[2],  0),
+#endif
 
     /*
       NOTE: parameter indexes have gaps above. When adding new
@@ -285,10 +309,6 @@ AP_InertialSensor::AP_InertialSensor() :
     _hil_mode(false),
     _calibrating(false),
     _log_raw_data(false),
-#if INS_VIBRATION_CHECK
-    _accel_vibe_floor_filter(AP_INERTIAL_SENSOR_ACCEL_VIBE_FLOOR_FILT_HZ),
-    _accel_vibe_filter(AP_INERTIAL_SENSOR_ACCEL_VIBE_FILT_HZ),
-#endif
     _dataflash(NULL)
 {
     AP_Param::setup_object_defaults(this, var_info);        
@@ -304,6 +324,12 @@ AP_InertialSensor::AP_InertialSensor() :
 
         _accel_max_abs_offsets[i] = 3.5f;
     }
+#if INS_VIBRATION_CHECK
+    for (uint8_t i=0; i<INS_VIBRATION_CHECK_INSTANCES; i++) {
+        _accel_vibe_floor_filter[i].set_cutoff_frequency(AP_INERTIAL_SENSOR_ACCEL_VIBE_FLOOR_FILT_HZ);
+        _accel_vibe_filter[i].set_cutoff_frequency(AP_INERTIAL_SENSOR_ACCEL_VIBE_FILT_HZ);
+    }
+#endif
     memset(_delta_velocity_valid,0,sizeof(_delta_velocity_valid));
     memset(_delta_angle_valid,0,sizeof(_delta_angle_valid));
 }
@@ -379,20 +405,14 @@ AP_InertialSensor::init( Start_style style,
     _have_sample = false;
 }
 
-/*
-  try to load a backend
- */
-void AP_InertialSensor::_add_backend(AP_InertialSensor_Backend *(detect)(AP_InertialSensor &))
+void AP_InertialSensor::_add_backend(AP_InertialSensor_Backend *backend)
 {
-    if (_backend_count == INS_MAX_BACKENDS) {
+    if (!backend)
+        return;
+    if (_backend_count == INS_MAX_BACKENDS)
         hal.scheduler->panic(PSTR("Too many INS backends"));
-    }
-    _backends[_backend_count] = detect(*this);
-    if (_backends[_backend_count] != NULL) {
-        _backend_count++;
-    }
+    _backends[_backend_count++] = backend;
 }
-
 
 /*
   detect available backends for this board
@@ -401,34 +421,29 @@ void
 AP_InertialSensor::_detect_backends(void)
 {
     if (_hil_mode) {
-        _add_backend(AP_InertialSensor_HIL::detect);
+        _add_backend(AP_InertialSensor_HIL::detect(*this));
         return;
     }
 #if HAL_INS_DEFAULT == HAL_INS_HIL
-    _add_backend(AP_InertialSensor_HIL::detect);
+    _add_backend(AP_InertialSensor_HIL::detect(*this));
 #elif HAL_INS_DEFAULT == HAL_INS_MPU60XX_SPI
-    _add_backend(AP_InertialSensor_MPU6000::detect_spi);
+    _add_backend(AP_InertialSensor_MPU6000::detect_spi(*this));
 #elif HAL_INS_DEFAULT == HAL_INS_MPU60XX_I2C && HAL_INS_MPU60XX_I2C_BUS == 2
-    _add_backend(AP_InertialSensor_MPU6000::detect_i2c2);
+    _add_backend(AP_InertialSensor_MPU6000::detect_i2c(*this, hal.i2c2, HAL_INS_MPU60XX_I2C_ADDR));
 #elif HAL_INS_DEFAULT == HAL_INS_PX4 || HAL_INS_DEFAULT == HAL_INS_VRBRAIN
-    _add_backend(AP_InertialSensor_PX4::detect);
+    _add_backend(AP_InertialSensor_PX4::detect(*this));
 #elif HAL_INS_DEFAULT == HAL_INS_OILPAN
-    _add_backend(AP_InertialSensor_Oilpan::detect);
+    _add_backend(AP_InertialSensor_Oilpan::detect(*this));
 #elif HAL_INS_DEFAULT == HAL_INS_MPU9250
-    _add_backend(AP_InertialSensor_MPU9250::detect);
+    _add_backend(AP_InertialSensor_MPU9250::detect(*this));
 #elif HAL_INS_DEFAULT == HAL_INS_FLYMAPLE
-    _add_backend(AP_InertialSensor_Flymaple::detect);
+    _add_backend(AP_InertialSensor_Flymaple::detect(*this));
 #elif HAL_INS_DEFAULT == HAL_INS_LSM9DS0
-    _add_backend(AP_InertialSensor_LSM9DS0::detect);
+    _add_backend(AP_InertialSensor_LSM9DS0::detect(*this));
+#elif HAL_INS_DEFAULT == HAL_INS_L3G4200D
+    _add_backend(AP_InertialSensor_L3G4200D::detect(*this));
 #else
     #error Unrecognised HAL_INS_TYPE setting
-#endif
-
-#if 0 // disabled due to broken hardware on some PXF capes
-#if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_PXF
-    // the PXF also has a MPU6000
-    _add_backend(AP_InertialSensor_MPU6000::detect);
-#endif
 #endif
 
     if (_backend_count == 0 ||
@@ -461,7 +476,6 @@ bool AP_InertialSensor::_calculate_trim(const Vector3f &accel_sample, float& tri
     return true;
 }
 
-#if !defined( __AVR_ATmega1280__ )
 // calibrate_accel - perform accelerometer calibration including providing user
 // instructions and feedback Gauss-Newton accel calibration routines borrowed
 // from Rolfe Schmidt blog post describing the method:
@@ -646,7 +660,6 @@ failed:
     _calibrating = false;
     return false;
 }
-#endif
 
 void
 AP_InertialSensor::init_gyro()
@@ -689,6 +702,16 @@ bool AP_InertialSensor::gyro_calibrated_ok_all() const
         }
     }
     return (get_gyro_count() > 0);
+}
+
+// return true if gyro instance should be used (must be healthy and have it's use parameter set to 1)
+bool AP_InertialSensor::use_gyro(uint8_t instance) const
+{
+    if (instance >= INS_MAX_INSTANCES) {
+        return false;
+    }
+
+    return (get_gyro_health(instance) && _use[instance]);
 }
 
 // get_accel_health_all - return true if all accels are healthy
@@ -793,6 +816,16 @@ bool AP_InertialSensor::accel_calibrated_ok_all() const
 
     // if we got this far the accelerometers must have been calibrated
     return true;
+}
+
+// return true if accel instance should be used (must be healthy and have it's use parameter set to 1)
+bool AP_InertialSensor::use_accel(uint8_t instance) const
+{
+    if (instance >= INS_MAX_INSTANCES) {
+        return false;
+    }
+
+    return (get_accel_health(instance) && _use[instance]);
 }
 
 void
@@ -931,8 +964,6 @@ AP_InertialSensor::_init_gyro()
     // stop flashing leds
     AP_Notify::flags.initialising = false;
 }
-
-#if !defined( __AVR_ATmega1280__ )
 
 /*
   check that the samples used for accel calibration have a sufficient
@@ -1133,8 +1164,6 @@ void AP_InertialSensor::_calibrate_find_delta(float dS[6], float JS[6][6], float
     }
 }
 
-#endif // __AVR_ATmega1280__
-
 // save parameters to eeprom
 void AP_InertialSensor::_save_parameters()
 {
@@ -1196,13 +1225,13 @@ void AP_InertialSensor::update(void)
 
         // set primary to first healthy accel and gyro
         for (uint8_t i=0; i<INS_MAX_INSTANCES; i++) {
-            if (_gyro_healthy[i]) {
+            if (_gyro_healthy[i] && _use[i]) {
                 _primary_gyro = i;
                 break;
             }
         }
         for (uint8_t i=0; i<INS_MAX_INSTANCES; i++) {
-            if (_accel_healthy[i]) {
+            if (_accel_healthy[i] && _use[i]) {
                 _primary_accel = i;
                 break;
             }
@@ -1443,29 +1472,30 @@ void AP_InertialSensor::calc_vibration_and_clipping(uint8_t instance, const Vect
         _accel_clip_count[instance]++;
     }
 
-    // calculate vibration on primary accel only
-    if (instance != _primary_accel) {
-        return;
+    // calculate vibration levels
+    if (instance < INS_VIBRATION_CHECK_INSTANCES) {
+        // filter accel at 5hz
+        Vector3f accel_filt = _accel_vibe_floor_filter[instance].apply(accel, dt);
+
+        // calc difference from this sample and 5hz filtered value, square and filter at 2hz
+        Vector3f accel_diff = (accel - accel_filt);
+        accel_diff.x *= accel_diff.x;
+        accel_diff.y *= accel_diff.y;
+        accel_diff.z *= accel_diff.z;
+        _accel_vibe_filter[instance].apply(accel_diff, dt);
     }
-
-    // filter accel a 5hz
-    Vector3f accel_filt = _accel_vibe_floor_filter.apply(accel, dt);
-
-    // calc difference from this sample and 5hz filtered value, square and filter at 2hz
-    Vector3f accel_diff = (accel - accel_filt);
-    accel_diff.x *= accel_diff.x;
-    accel_diff.y *= accel_diff.y;
-    accel_diff.z *= accel_diff.z;
-    _accel_vibe_filter.apply(accel_diff, dt);
 }
 
 // retrieve latest calculated vibration levels
-Vector3f AP_InertialSensor::get_vibration_levels() const
+Vector3f AP_InertialSensor::get_vibration_levels(uint8_t instance) const
 {
-    Vector3f vibe = _accel_vibe_filter.get();
-    vibe.x = safe_sqrt(vibe.x);
-    vibe.y = safe_sqrt(vibe.y);
-    vibe.z = safe_sqrt(vibe.z);
+    Vector3f vibe;
+    if (instance < INS_VIBRATION_CHECK_INSTANCES) {
+        vibe = _accel_vibe_filter[instance].get();
+        vibe.x = safe_sqrt(vibe.x);
+        vibe.y = safe_sqrt(vibe.y);
+        vibe.z = safe_sqrt(vibe.z);
+    }
     return vibe;
 }
 #endif

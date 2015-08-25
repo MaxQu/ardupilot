@@ -28,6 +28,9 @@ bool Plane::start_command(const AP_Mission::Mission_Command& cmd)
         // start non-idle
         auto_state.idle_mode = false;
         
+        // once landed, post some landing statistics to the GCS
+        auto_state.post_landing_stats = false;
+
         gcs_send_text_fmt(PSTR("Executing nav command ID #%i"),cmd.id);
     } else {
         gcs_send_text_fmt(PSTR("Executing command ID #%i"),cmd.id);
@@ -245,15 +248,12 @@ bool Plane::verify_command(const AP_Mission::Mission_Command& cmd)        // Ret
 
     case MAV_CMD_CONDITION_DELAY:
         return verify_wait_delay();
-        break;
 
     case MAV_CMD_CONDITION_DISTANCE:
         return verify_within_distance();
-        break;
 
     case MAV_CMD_CONDITION_CHANGE_ALT:
         return verify_change_alt();
-        break;
 
     // do commands (always return true)
     case MAV_CMD_DO_CHANGE_SPEED:
@@ -831,10 +831,12 @@ void Plane::do_take_picture()
 // log_picture - log picture taken and send feedback to GCS
 void Plane::log_picture()
 {
+#if CAMERA == ENABLED
     gcs_send_message(MSG_CAMERA_FEEDBACK);
     if (should_log(MASK_LOG_CAMERA)) {
         DataFlash.Log_Write_Camera(ahrs, gps, current_loc);
     }
+#endif
 }
 
 // start_command_callback - callback function called from ap-mission when it begins a new mission command
@@ -852,7 +854,14 @@ bool Plane::start_command_callback(const AP_Mission::Mission_Command &cmd)
 bool Plane::verify_command_callback(const AP_Mission::Mission_Command& cmd)
 {
     if (control_mode == AUTO) {
-        return verify_command(cmd);
+        bool cmd_complete = verify_command(cmd);
+
+        // send message to GCS
+        if (cmd_complete) {
+            gcs_send_mission_item_reached_message(cmd.index);
+        }
+
+        return cmd_complete;
     }
     return false;
 }

@@ -29,9 +29,9 @@
 /// TinyGPS parser by Mikal Hart.
 ///
 
-#include <AP_Common.h>
+#include <AP_Common/AP_Common.h>
 
-#include <AP_Progmem.h>
+#include <AP_Progmem/AP_Progmem.h>
 #include <ctype.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -39,6 +39,13 @@
 #include "AP_GPS_NMEA.h"
 
 extern const AP_HAL::HAL& hal;
+
+// optionally log all NMEA data for debug purposes
+// #define NMEA_LOG_PATH "nmea.log"
+
+#ifdef NMEA_LOG_PATH
+#include <stdio.h>
+#endif
 
 // SiRF init messages //////////////////////////////////////////////////////////
 //
@@ -117,7 +124,17 @@ bool AP_GPS_NMEA::read(void)
 
     numc = port->available();
     while (numc--) {
-        if (_decode(port->read())) {
+        char c = port->read();
+#ifdef NMEA_LOG_PATH
+        static FILE *logf = NULL;
+        if (logf == NULL) {
+            logf = fopen(NMEA_LOG_PATH, "wb");
+        }
+        if (logf != NULL) {
+            ::fwrite(&c, 1, 1, logf);
+        }
+#endif
+        if (_decode(c)) {
             parsed = true;
         }
     }
@@ -131,6 +148,7 @@ bool AP_GPS_NMEA::_decode(char c)
     switch (c) {
     case ',': // term terminators
         _parity ^= c;
+        /* no break */
     case '\r':
     case '\n':
     case '*':

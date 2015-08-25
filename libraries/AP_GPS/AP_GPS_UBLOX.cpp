@@ -19,9 +19,9 @@
 //	Origin code by Michael Smith, Jordi Munoz and Jose Julio, DIYDrones.com
 //  Substantially rewitten for new GPS driver structure by Andrew Tridgell
 //
-#include <AP_GPS.h>
+#include "AP_GPS.h"
 #include "AP_GPS_UBLOX.h"
-#include <DataFlash.h>
+#include <DataFlash/DataFlash.h>
 
 #if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_NAVIO
     #define UBLOX_VERSION_AUTODETECTION 1
@@ -39,18 +39,6 @@ extern const AP_HAL::HAL& hal;
  # define Debug(fmt, args ...)  do {hal.console->printf("%s:%d: " fmt "\n", __FUNCTION__, __LINE__, ## args); hal.scheduler->delay(1); } while(0)
 #else
  # define Debug(fmt, args ...)
-#endif
-
-/*
-  only do detailed hardware logging on boards likely to have more log
-  storage space
- */
-#if HAL_CPU_CLASS >= HAL_CPU_CLASS_75
-#define UBLOX_HW_LOGGING 1
-#define UBLOX_RXM_RAW_LOGGING 1
-#else
-#define UBLOX_HW_LOGGING 0
-#define UBLOX_RXM_RAW_LOGGING 0
 #endif
 
 AP_GPS_UBLOX::AP_GPS_UBLOX(AP_GPS &_gps, AP_GPS::GPS_State &_state, AP_HAL::UARTDriver *_port) :
@@ -452,6 +440,7 @@ AP_GPS_UBLOX::_parse_gps(void)
         return false;
     }
 
+#if UBLOX_GNSS_SETTINGS
     if (_class == CLASS_CFG && _msg_id == MSG_CFG_GNSS && gps._gnss_mode != 0) {
         uint8_t gnssCount = 0;
         Debug("Got GNSS Settings %u %u %u %u:\n",
@@ -469,7 +458,7 @@ AP_GPS_UBLOX::_parse_gps(void)
         }
 #endif
 
-        for(int i = 1; i <= UBLOX_MAX_GNSS_CONFIG_BLOCKS; i++) {
+        for(int i = 0; i < UBLOX_MAX_GNSS_CONFIG_BLOCKS; i++) {
             if((gps._gnss_mode & (1 << i)) && i != GNSS_SBAS) {
                 gnssCount++;
             }
@@ -483,7 +472,7 @@ AP_GPS_UBLOX::_parse_gps(void)
                     _buffer.gnss.configBlock[i].maxTrkCh = _buffer.gnss.numTrkChHw;
                 } else {
                     _buffer.gnss.configBlock[i].resTrkCh = 1;
-                    _buffer.gnss.configBlock[i].resTrkCh = 3;
+                    _buffer.gnss.configBlock[i].maxTrkCh = 3;
                 }
                 _buffer.gnss.configBlock[i].flags = _buffer.gnss.configBlock[i].flags | 0x00000001;
             } else {
@@ -495,6 +484,7 @@ AP_GPS_UBLOX::_parse_gps(void)
         _send_message(CLASS_CFG, MSG_CFG_GNSS, &_buffer.gnss, 4 + (8 * _buffer.gnss.numConfigBlocks));
         return false;
     }
+#endif
 
     if (_class == CLASS_CFG && _msg_id == MSG_CFG_SBAS && gps._sbas_mode != 2) {
 		Debug("Got SBAS settings %u %u %u 0x%x 0x%x\n", 

@@ -21,7 +21,7 @@
  */
 
 #include "AP_MotorsMulticopter.h"
-#include <AP_HAL.h>
+#include <AP_HAL/AP_HAL.h>
 extern const AP_HAL::HAL& hal;
 
 // parameters for the motor class
@@ -86,10 +86,17 @@ const AP_Param::GroupInfo AP_MotorsMulticopter::var_info[] PROGMEM = {
 
     // @Param: THR_MIX_MIN
     // @DisplayName: Throttle Mix Minimum
-    // @Description: Minimum ratio that the average throttle can increase above the desired throttle after roll, pitch and yaw are mixed
+    // @Description: Throttle vs attitude control prioritisation used when landing (higher values mean we prioritise attitude control over throttle)
     // @Range: 0.1 0.25
     // @User: Advanced
     AP_GROUPINFO("THR_MIX_MIN", 13, AP_MotorsMulticopter, _thr_mix_min, AP_MOTORS_THR_MIX_MIN_DEFAULT),
+
+    // @Param: THR_MIX_MAX
+    // @DisplayName: Throttle Mix Maximum
+    // @Description: Throttle vs attitude control prioritisation used during active flight (higher values mean we prioritise attitude control over throttle)
+    // @Range: 0.5 0.9
+    // @User: Advanced
+    AP_GROUPINFO("THR_MIX_MAX", 14, AP_MotorsMulticopter, _thr_mix_max, AP_MOTORS_THR_MIX_MAX_DEFAULT),
 
     AP_GROUPEND
 };
@@ -350,6 +357,7 @@ void AP_MotorsMulticopter::set_throttle_range(uint16_t min_throttle, int16_t rad
     _throttle_radio_min = radio_min;
     _throttle_radio_max = radio_max;
     _throttle_pwm_scalar = (_throttle_radio_max - _throttle_radio_min) / 1000.0f;
+    _rpy_pwm_scalar = (_throttle_radio_max - (_throttle_radio_min + _min_throttle)) / 9000.0f;
     _min_throttle = (float)min_throttle * _throttle_pwm_scalar;   
 }
 
