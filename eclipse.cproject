@@ -1,159 +1,2399 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
-	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cross.base.354374513">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cross.base.354374513" moduleId="org.eclipse.cdt.core.settings" name="Default">
-				<externalSettings/>
-				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
-					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-				</extensions>
-			</storageModule>
-			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration buildProperties="" id="cdt.managedbuild.toolchain.gnu.cross.base.354374513" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
-					<folderInfo id="cdt.managedbuild.toolchain.gnu.cross.base.354374513.892177930" name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.526035570" name="cdt.managedbuild.toolchain.gnu.cross.base" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
-							<option id="cdt.managedbuild.option.gnu.cross.prefix.458442836" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
-							<option id="cdt.managedbuild.option.gnu.cross.path.1219552670" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path"/>
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.737405680" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder id="cdt.managedbuild.builder.gnu.cross.778361658" managedBuildOn="false" name="Gnu Make Builder.Default" superClass="cdt.managedbuild.builder.gnu.cross"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.768396405" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.281326927" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
-							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1282124949" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1533331666" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
-							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1121841264" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1530575069" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1550437110" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
-									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
-									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
-								</inputType>
-							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1425628759" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.941717398" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.968458728" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
-							</tool>
-						</toolChain>
-					</folderInfo>
-				</configuration>
-			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-		</cconfiguration>
-	</storageModule>
-	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="ardupilot.null.967258070" name="ardupilot"/>
-	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
-	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
-		<buildTargets>
-			<target name="px4-v2" path="ArduCopter" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildTarget>px4-v2</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-cleandep" path="ArduCopter" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>px4-cleandep</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="clean" path="ArduCopter" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-clean" path="ArduCopter" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildTarget>px4-clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-v2" path="ArduPlane" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildTarget>px4-v2</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="clean" path="ArduPlane" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-clean" path="ArduPlane" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>px4-clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-cleandep" path="ArduPlane" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>px4-cleandep</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-v2" path="AntennaTracker" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildTarget>px4-v2</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-v2" path="APMrover2" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildTarget>px4-v2</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="clean" path="APMrover2" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-clean" path="APMrover2" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>px4-clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="px4-cleandep" path="APMrover2" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments/>
-				<buildTarget>px4-cleandep</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>true</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-		</buildTargets>
-	</storageModule>
-</cproject>
+
+
+
+<!DOCTYPE html>
+<html lang="en" class=" is-copy-enabled">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    
+    
+    <title>ardupilot/eclipse.cproject at Copter-3.3 · diydrones/ardupilot</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="diydrones/ardupilot" name="twitter:title" /><meta content="ardupilot - APM Plane, APM Copter, APM Rover source" name="twitter:description" /><meta content="https://avatars2.githubusercontent.com/u/3189387?v=3&amp;s=400" name="twitter:image:src" />
+      <meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="https://avatars2.githubusercontent.com/u/3189387?v=3&amp;s=400" property="og:image" /><meta content="diydrones/ardupilot" property="og:title" /><meta content="https://github.com/diydrones/ardupilot" property="og:url" /><meta content="ardupilot - APM Plane, APM Copter, APM Rover source" property="og:description" />
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MTI0NTQ0NTE6YjEzYzY2NmRkYjM5ZTgxZDBhNTU3MmU5ZGY5MTA1ODg6ZGVlYTJkZjNmZjMyZjVjMDg3NWIwZWM4MDY1MDAwODg2NmFkNWE5NTE2ZmUxOGZiNzViOWRlMjg2YzI5NzBjYw==--a18f8f43a4b52048958a83baafa6b009e8d8a337">
+    <meta name="pjax-timeout" content="1000">
+    <link rel="sudo-modal" href="/sessions/sudo_modal">
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+        <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="12BD2B30:4CF2:13F3D0:55DCF65D" name="octolytics-dimension-request_id" /><meta content="12454451" name="octolytics-actor-id" /><meta content="MaxQu" name="octolytics-actor-login" /><meta content="45139d0ef274fc8a72ef1860851e9bdbf68ddb643f0d8f5ba28c6e4727316096" name="octolytics-actor-hash" />
+    
+    <meta content="Rails, view, blob#show" data-pjax-transient="true" name="analytics-event" />
+    <meta class="js-ga-set" name="dimension1" content="Logged In">
+      <meta class="js-ga-set" name="dimension4" content="Current repo nav">
+    <meta name="is-dotcom" content="true">
+        <meta name="hostname" content="github.com">
+    <meta name="user-login" content="MaxQu">
+
+      <link rel="icon" sizes="any" mask href="https://assets-cdn.github.com/pinned-octocat.svg">
+      <meta name="theme-color" content="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <!-- </textarea> --><!-- '"` --><meta content="authenticity_token" name="csrf-param" />
+<meta content="dpYDXafrzYpCGGgAcO3FgrzChKEPTMmGETtId89A1RjrsGgPCnYN6rlJwUHcmtCjX3KG4MloD0hpU3pzluvb/A==" name="csrf-token" />
+    <meta content="5e30f1b3b4ff4318729167f33be6114bbe0d860c" name="form-nonce" />
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github/index-17ad0ea72cb80a46ba6d1bd6e3c69789acb0e1c0cae43beb90477759cce1bdfd.css" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2/index-239d3460922660972671a8af204cd73edf4c17dfb15363bedadcd37e5beeca47.css" media="all" rel="stylesheet" />
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="1ac3ebc984ff961be6890a25ca2e6be8">
+
+      
+  <meta name="description" content="ardupilot - APM Plane, APM Copter, APM Rover source">
+  <meta name="go-import" content="github.com/diydrones/ardupilot git https://github.com/diydrones/ardupilot.git">
+
+  <meta content="3189387" name="octolytics-dimension-user_id" /><meta content="diydrones" name="octolytics-dimension-user_login" /><meta content="7512484" name="octolytics-dimension-repository_id" /><meta content="diydrones/ardupilot" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="7512484" name="octolytics-dimension-repository_network_root_id" /><meta content="diydrones/ardupilot" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/diydrones/ardupilot/commits/Copter-3.3.atom" rel="alternate" title="Recent Commits to ardupilot:Copter-3.3" type="application/atom+xml">
+
+  </head>
+
+
+  <body class="logged_in  env-production windows vis-public page-blob">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+
+
+
+        <div class="header header-logged-in true" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+  <span class="mega-octicon octicon-mark-github"></span>
+</a>
+
+
+      <div class="site-search repo-scope js-site-search" role="search">
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/diydrones/ardupilot/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/diydrones/ardupilot/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <label class="js-chromeless-input-container form-control">
+    <div class="scope-badge">This repository</div>
+    <input type="text"
+      class="js-site-search-focus js-site-search-field is-clearable chromeless-input"
+      data-hotkey="s"
+      name="q"
+      placeholder="Search"
+      aria-label="Search this repository"
+      data-global-scope-placeholder="Search GitHub"
+      data-repo-scope-placeholder="Search"
+      tabindex="1"
+      autocapitalize="off">
+  </label>
+</form>
+      </div>
+
+      <ul class="header-nav left" role="navigation">
+        <li class="header-nav-item">
+          <a href="/pulls" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:pulls context:user" data-hotkey="g p" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls">
+            Pull requests
+</a>        </li>
+        <li class="header-nav-item">
+          <a href="/issues" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:issues context:user" data-hotkey="g i" data-selected-links="/issues /issues/assigned /issues/mentioned /issues">
+            Issues
+</a>        </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://gist.github.com/" data-ga-click="Header, go to gist, text:gist">Gist</a>
+          </li>
+      </ul>
+
+    
+<ul class="header-nav user-nav right" id="user-links">
+  <li class="header-nav-item">
+      <span class="js-socket-channel js-updatable-content"
+        data-channel="notification-changed:MaxQu"
+        data-url="/notifications/header">
+      <a href="/notifications" aria-label="You have no unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s" data-ga-click="Header, go to notifications, icon:read" data-hotkey="g n">
+          <span class="mail-status all-read"></span>
+          <span class="octicon octicon-inbox"></span>
+</a>  </span>
+
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link tooltipped tooltipped-s js-menu-target" href="/new"
+       aria-label="Create new…"
+       data-ga-click="Header, create new, icon:add">
+      <span class="octicon octicon-plus left"></span>
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      <ul class="dropdown-menu dropdown-menu-sw">
+        
+<a class="dropdown-item" href="/new" data-ga-click="Header, create new repository">
+  New repository
+</a>
+
+
+  <a class="dropdown-item" href="/organizations/new" data-ga-click="Header, create new organization">
+    New organization
+  </a>
+
+
+
+  <div class="dropdown-divider"></div>
+  <div class="dropdown-header">
+    <span title="diydrones/ardupilot">This repository</span>
+  </div>
+    <a class="dropdown-item" href="/diydrones/ardupilot/issues/new" data-ga-click="Header, create new issue">
+      New issue
+    </a>
+
+      </ul>
+    </div>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link name tooltipped tooltipped-s js-menu-target" href="/MaxQu"
+       aria-label="View profile and more"
+       data-ga-click="Header, show menu, icon:avatar">
+      <img alt="@MaxQu" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/12454451?v=3&amp;s=40" width="20" />
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      <div class="dropdown-menu dropdown-menu-sw">
+        <div class="dropdown-header header-nav-current-user css-truncate">
+          Signed in as <strong class="css-truncate-target">MaxQu</strong>
+        </div>
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="/MaxQu" data-ga-click="Header, go to profile, text:your profile">
+          Your profile
+        </a>
+        <a class="dropdown-item" href="/stars" data-ga-click="Header, go to starred repos, text:your stars">
+          Your stars
+        </a>
+        <a class="dropdown-item" href="/explore" data-ga-click="Header, go to explore, text:explore">
+          Explore
+        </a>
+        <a class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">
+          Help
+        </a>
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">
+          Settings
+        </a>
+
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="3AHn0oirgAS1TR9rk6HyidaBbdjChDbpyahGk0rNqk0aE58Ybtkdb+OZSD1qABMJ7MVFPzkfDtTVmWz3WvKgXQ==" /></div>
+          <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
+            Sign out
+          </button>
+</form>      </div>
+    </div>
+  </li>
+</ul>
+
+
+    
+  </div>
+</div>
+
+        
+
+        
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+
+        <div class="clearfix">
+          
+<ul class="pagehead-actions">
+
+  <li>
+      <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="HXqbdUz3bSdymIDArptXzk0GpxxAV3EEBHNE50iKnP7tREjTdVXpyY2W9b3eBL/HURj3YvZcDv+oc0XO/hxaug==" /></div>    <input id="repository_id" name="repository_id" type="hidden" value="7512484" />
+
+      <div class="select-menu js-menu-container js-select-menu">
+        <a href="/diydrones/ardupilot/subscription"
+          class="btn btn-sm btn-with-count select-menu-button js-menu-target" role="button" tabindex="0" aria-haspopup="true"
+          data-ga-click="Repository, click Watch settings, action:blob#show">
+          <span class="js-select-button">
+            <span class="octicon octicon-eye"></span>
+            Watch
+          </span>
+        </a>
+        <a class="social-count js-social-count" href="/diydrones/ardupilot/watchers">
+          438
+        </a>
+
+        <div class="select-menu-modal-holder">
+          <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
+            <div class="select-menu-header">
+              <span class="select-menu-title">Notifications</span>
+              <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+            </div>
+
+            <div class="select-menu-list js-navigation-container" role="menu">
+
+              <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+                <span class="select-menu-item-icon octicon octicon-check"></span>
+                <div class="select-menu-item-text">
+                  <input checked="checked" id="do_included" name="do" type="radio" value="included" />
+                  <span class="select-menu-item-heading">Not watching</span>
+                  <span class="description">Be notified when participating or @mentioned.</span>
+                  <span class="js-select-button-text hidden-select-button-text">
+                    <span class="octicon octicon-eye"></span>
+                    Watch
+                  </span>
+                </div>
+              </div>
+
+              <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+                <span class="select-menu-item-icon octicon octicon octicon-check"></span>
+                <div class="select-menu-item-text">
+                  <input id="do_subscribed" name="do" type="radio" value="subscribed" />
+                  <span class="select-menu-item-heading">Watching</span>
+                  <span class="description">Be notified of all conversations.</span>
+                  <span class="js-select-button-text hidden-select-button-text">
+                    <span class="octicon octicon-eye"></span>
+                    Unwatch
+                  </span>
+                </div>
+              </div>
+
+              <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+                <span class="select-menu-item-icon octicon octicon-check"></span>
+                <div class="select-menu-item-text">
+                  <input id="do_ignore" name="do" type="radio" value="ignore" />
+                  <span class="select-menu-item-heading">Ignoring</span>
+                  <span class="description">Never be notified.</span>
+                  <span class="js-select-button-text hidden-select-button-text">
+                    <span class="octicon octicon-mute"></span>
+                    Stop ignoring
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+</form>
+  </li>
+
+  <li>
+    
+  <div class="js-toggler-container js-social-container starring-container ">
+
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/diydrones/ardupilot/unstar" class="js-toggler-form starred js-unstar-button" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Oa5bllp7V9KCWU6vVrQh66Hb5hsQ6nbF7TsbQCWkoB36eiYY3noYYmwjAPmb2IqyuVKOtEBl2QNLBN73rmnMvw==" /></div>
+      <button
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Unstar this repository" title="Unstar diydrones/ardupilot"
+        data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">
+        <span class="octicon octicon-star"></span>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="/diydrones/ardupilot/stargazers">
+          1,378
+        </a>
+</form>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/diydrones/ardupilot/star" class="js-toggler-form unstarred js-star-button" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="zjPdiqJw1X0Etea5aEtQLEnI6uDGuv6Z6OBg6WRL/2sPXPHg44xLepriliL75pg3DCm2KHw6lI0cpppqE1HioA==" /></div>
+      <button
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Star this repository" title="Star diydrones/ardupilot"
+        data-ga-click="Repository, click star button, action:blob#show; text:Star">
+        <span class="octicon octicon-star"></span>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="/diydrones/ardupilot/stargazers">
+          1,378
+        </a>
+</form>  </div>
+
+  </li>
+
+        <li>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/diydrones/ardupilot/fork" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="v+k5lnKBYqUvYk8D+Nqgfkk1tER4BmYexzXQSkwq+c6AbNm6oVFEgLCXrOrj+9ITQyJXHNi5bG9jze+sfkSPJA==" /></div>
+            <button
+                type="submit"
+                class="btn btn-sm btn-with-count"
+                data-ga-click="Repository, show fork modal, action:blob#show; text:Fork"
+                title="Fork your own copy of diydrones/ardupilot to your account"
+                aria-label="Fork your own copy of diydrones/ardupilot to your account">
+              <span class="octicon octicon-repo-forked"></span>
+              Fork
+            </button>
+            <a href="/diydrones/ardupilot/network" class="social-count">2,612</a>
+</form>        </li>
+
+</ul>
+
+          <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public ">
+  <span class="mega-octicon octicon-repo"></span>
+  <span class="author"><a href="/diydrones" class="url fn" itemprop="url" rel="author"><span itemprop="title">diydrones</span></a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong><a href="/diydrones/ardupilot" data-pjax="#js-repo-pjax-container">ardupilot</a></strong>
+
+  <span class="page-context-loader">
+    <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+  </span>
+
+</h1>
+        
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline ">
+        <div class="repository-sidebar clearfix">
+          
+<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container"
+     data-issue-count-url="/diydrones/ardupilot/issues/counts">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="/diydrones/ardupilot/tree/Copter-3.3" aria-label="Code" aria-selected="true" class="js-selected-navigation-item selected sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /diydrones/ardupilot/tree/Copter-3.3">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Issues">
+        <a href="/diydrones/ardupilot/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /diydrones/ardupilot/issues">
+          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+          <span class="js-issue-replace-counter"></span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Pull requests">
+      <a href="/diydrones/ardupilot/pulls" aria-label="Pull requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /diydrones/ardupilot/pulls">
+          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull requests</span>
+          <span class="js-pull-replace-counter"></span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Wiki">
+        <a href="/diydrones/ardupilot/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g w" data-selected-links="repo_wiki /diydrones/ardupilot/wiki">
+          <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+  </ul>
+  <div class="sunken-menu-separator"></div>
+  <ul class="sunken-menu-group">
+
+    <li class="tooltipped tooltipped-w" aria-label="Pulse">
+      <a href="/diydrones/ardupilot/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /diydrones/ardupilot/pulse">
+        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Graphs">
+      <a href="/diydrones/ardupilot/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /diydrones/ardupilot/graphs">
+        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+  </ul>
+
+
+</nav>
+
+            <div class="only-with-full-nav">
+                
+<div class="js-clone-url clone-url open"
+  data-protocol-type="http">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
+           value="https://github.com/diydrones/ardupilot.git" readonly="readonly" aria-label="HTTPS clone URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="js-clone-url clone-url "
+  data-protocol-type="ssh">
+  <h3><span class="text-emphasized">SSH</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
+           value="git@github.com:diydrones/ardupilot.git" readonly="readonly" aria-label="SSH clone URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="js-clone-url clone-url "
+  data-protocol-type="subversion">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
+           value="https://github.com/diydrones/ardupilot" readonly="readonly" aria-label="Subversion checkout URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+  <div class="clone-options">You can clone with
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="fvQ/qjqHzEeH24vC2QOFTp5uwxBQLc97pNNfh2ZK/WRJApsnvdbjeZ1DniMBGlpZVN4jd2GpHIu8XEOOra4jAA==" /></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form>, <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="BjacFDiXxBGI3VaNKmT8cX6OxJ8VPDg8O0Pz+VPhKMbuOYzdkwMGXuQqSEUKkmtCPuA7bLcPllfjto+ruVvk+Q==" /></div><button class="btn-link js-clone-selector" data-protocol="ssh" type="submit">SSH</button></form>, or <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="mMfmPsPoF25hv6UKxUNybpvtRO62RPQ42ojEKrFdhqxcKyI7L3WEoAjQEDK4Fp3QxByZqmM/HYhF1JdmmfmpsQ==" /></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+      <span class="octicon octicon-question"></span>
+    </a>
+  </div>
+    <a href="github-windows://openRepo/https://github.com/diydrones/ardupilot" class="btn btn-sm sidebar-button" title="Save diydrones/ardupilot to your computer and use it in GitHub Desktop." aria-label="Save diydrones/ardupilot to your computer and use it in GitHub Desktop.">
+      <span class="octicon octicon-desktop-download"></span>
+      Clone in Desktop
+    </a>
+
+              <a href="/diydrones/ardupilot/archive/Copter-3.3.zip"
+                 class="btn btn-sm sidebar-button"
+                 aria-label="Download the contents of diydrones/ardupilot as a zip file"
+                 title="Download the contents of diydrones/ardupilot as a zip file"
+                 rel="nofollow">
+                <span class="octicon octicon-cloud-download"></span>
+                Download ZIP
+              </a>
+            </div>
+        </div>
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container>
+
+          
+
+<a href="/diydrones/ardupilot/blob/70c7e93dd2b92265b6eb41f8dee8dd250d52025b/eclipse.cproject" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+<!-- blob contrib key: blob_contributors:v21:a51015d25e888499e29ffe0e28dc6a34 -->
+
+  <div class="file-navigation js-zeroclipboard-container">
+    
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    data-ref="Copter-3.3"
+    title="Copter-3.3"
+    role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <i>Branch:</i>
+    <span class="js-select-button css-truncate-target">Copter-3.3</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/APMrover2-release/eclipse.cproject"
+               data-name="APMrover2-release"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="APMrover2-release">
+                APMrover2-release
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-2.8.1/eclipse.cproject"
+               data-name="ArduCopter-2.8.1"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-2.8.1">
+                ArduCopter-2.8.1
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-2.9/eclipse.cproject"
+               data-name="ArduCopter-2.9"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-2.9">
+                ArduCopter-2.9
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-3.0/eclipse.cproject"
+               data-name="ArduCopter-3.0"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-3.0">
+                ArduCopter-3.0
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-3.1/eclipse.cproject"
+               data-name="ArduCopter-3.1"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-3.1">
+                ArduCopter-3.1
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-3.1.1/eclipse.cproject"
+               data-name="ArduCopter-3.1.1"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-3.1.1">
+                ArduCopter-3.1.1
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-3.1.2/eclipse.cproject"
+               data-name="ArduCopter-3.1.2"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-3.1.2">
+                ArduCopter-3.1.2
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-3.2/eclipse.cproject"
+               data-name="ArduCopter-3.2"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-3.2">
+                ArduCopter-3.2
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/ArduCopter-3.2.1/eclipse.cproject"
+               data-name="ArduCopter-3.2.1"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="ArduCopter-3.2.1">
+                ArduCopter-3.2.1
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/diydrones/ardupilot/blob/Copter-3.3/eclipse.cproject"
+               data-name="Copter-3.3"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="Copter-3.3">
+                Copter-3.3
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/coverity_scan/eclipse.cproject"
+               data-name="coverity_scan"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="coverity_scan">
+                coverity_scan
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/master/eclipse.cproject"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="master">
+                master
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/diydrones/ardupilot/blob/master-AVR/eclipse.cproject"
+               data-name="master-AVR"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="master-AVR">
+                master-AVR
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/v2.4/eclipse.cproject"
+                 data-name="v2.4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="v2.4">v2.4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/pre-apm2-support/eclipse.cproject"
+                 data-name="pre-apm2-support"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="pre-apm2-support">pre-apm2-support</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/cellular-modem-0.5/eclipse.cproject"
+                 data-name="cellular-modem-0.5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="cellular-modem-0.5">cellular-modem-0.5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/cellular-modem-0-5/eclipse.cproject"
+                 data-name="cellular-modem-0-5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="cellular-modem-0-5">cellular-modem-0-5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/Rudder_elevon/eclipse.cproject"
+                 data-name="Rudder_elevon"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="Rudder_elevon">Rudder_elevon</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/Copter-3.3-rc7/eclipse.cproject"
+                 data-name="Copter-3.3-rc7"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="Copter-3.3-rc7">Copter-3.3-rc7</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/Copter-3.3-rc5/eclipse.cproject"
+                 data-name="Copter-3.3-rc5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="Copter-3.3-rc5">Copter-3.3-rc5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/CanberraUAV-OBC-2012/eclipse.cproject"
+                 data-name="CanberraUAV-OBC-2012"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="CanberraUAV-OBC-2012">CanberraUAV-OBC-2012</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-stable/eclipse.cproject"
+                 data-name="ArduPlane-stable"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-stable">ArduPlane-stable</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-beta-AVR/eclipse.cproject"
+                 data-name="ArduPlane-beta-AVR"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-beta-AVR">ArduPlane-beta-AVR</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-beta/eclipse.cproject"
+                 data-name="ArduPlane-beta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-beta">ArduPlane-beta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.3.0/eclipse.cproject"
+                 data-name="ArduPlane-3.3.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.3.0">ArduPlane-3.3.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.2.2/eclipse.cproject"
+                 data-name="ArduPlane-3.2.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.2.2">ArduPlane-3.2.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.2.1/eclipse.cproject"
+                 data-name="ArduPlane-3.2.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.2.1">ArduPlane-3.2.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.2.0/eclipse.cproject"
+                 data-name="ArduPlane-3.2.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.2.0">ArduPlane-3.2.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.1.0/eclipse.cproject"
+                 data-name="ArduPlane-3.1.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.1.0">ArduPlane-3.1.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.0.3/eclipse.cproject"
+                 data-name="ArduPlane-3.0.3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.0.3">ArduPlane-3.0.3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.0.2/eclipse.cproject"
+                 data-name="ArduPlane-3.0.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.0.2">ArduPlane-3.0.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.0.1/eclipse.cproject"
+                 data-name="ArduPlane-3.0.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.0.1">ArduPlane-3.0.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-3.0.0/eclipse.cproject"
+                 data-name="ArduPlane-3.0.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-3.0.0">ArduPlane-3.0.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.78b/eclipse.cproject"
+                 data-name="ArduPlane-2.78b"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.78b">ArduPlane-2.78b</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.78/eclipse.cproject"
+                 data-name="ArduPlane-2.78"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.78">ArduPlane-2.78</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.75/eclipse.cproject"
+                 data-name="ArduPlane-2.75"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.75">ArduPlane-2.75</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.74b/eclipse.cproject"
+                 data-name="ArduPlane-2.74b"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.74b">ArduPlane-2.74b</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.74/eclipse.cproject"
+                 data-name="ArduPlane-2.74"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.74">ArduPlane-2.74</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.73/eclipse.cproject"
+                 data-name="ArduPlane-2.73"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.73">ArduPlane-2.73</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.72/eclipse.cproject"
+                 data-name="ArduPlane-2.72"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.72">ArduPlane-2.72</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.70/eclipse.cproject"
+                 data-name="ArduPlane-2.70"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.70">ArduPlane-2.70</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.69/eclipse.cproject"
+                 data-name="ArduPlane-2.69"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.69">ArduPlane-2.69</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.68/eclipse.cproject"
+                 data-name="ArduPlane-2.68"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.68">ArduPlane-2.68</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.67/eclipse.cproject"
+                 data-name="ArduPlane-2.67"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.67">ArduPlane-2.67</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.66/eclipse.cproject"
+                 data-name="ArduPlane-2.66"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.66">ArduPlane-2.66</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.65/eclipse.cproject"
+                 data-name="ArduPlane-2.65"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.65">ArduPlane-2.65</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.64/eclipse.cproject"
+                 data-name="ArduPlane-2.64"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.64">ArduPlane-2.64</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.63/eclipse.cproject"
+                 data-name="ArduPlane-2.63"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.63">ArduPlane-2.63</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.62/eclipse.cproject"
+                 data-name="ArduPlane-2.62"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.62">ArduPlane-2.62</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.61/eclipse.cproject"
+                 data-name="ArduPlane-2.61"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.61">ArduPlane-2.61</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.60/eclipse.cproject"
+                 data-name="ArduPlane-2.60"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.60">ArduPlane-2.60</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.50/eclipse.cproject"
+                 data-name="ArduPlane-2.50"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.50">ArduPlane-2.50</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.40-beta/eclipse.cproject"
+                 data-name="ArduPlane-2.40-beta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.40-beta">ArduPlane-2.40-beta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.40/eclipse.cproject"
+                 data-name="ArduPlane-2.40"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.40">ArduPlane-2.40</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.34/eclipse.cproject"
+                 data-name="ArduPlane-2.34"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.34">ArduPlane-2.34</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.33/eclipse.cproject"
+                 data-name="ArduPlane-2.33"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.33">ArduPlane-2.33</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.32/eclipse.cproject"
+                 data-name="ArduPlane-2.32"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.32">ArduPlane-2.32</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.31/eclipse.cproject"
+                 data-name="ArduPlane-2.31"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.31">ArduPlane-2.31</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.30/eclipse.cproject"
+                 data-name="ArduPlane-2.30"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.30">ArduPlane-2.30</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.28/eclipse.cproject"
+                 data-name="ArduPlane-2.28"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.28">ArduPlane-2.28</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduPlane-2.27-Alpha/eclipse.cproject"
+                 data-name="ArduPlane-2.27-Alpha"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduPlane-2.27-Alpha">ArduPlane-2.27-Alpha</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-stable/eclipse.cproject"
+                 data-name="ArduCopter-stable"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-stable">ArduCopter-stable</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-beta/eclipse.cproject"
+                 data-name="ArduCopter-beta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-beta">ArduCopter-beta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.2-apm-px4/eclipse.cproject"
+                 data-name="ArduCopter-3.2-apm-px4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.2-apm-px4">ArduCopter-3.2-apm-px4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.2.1-apm-px4/eclipse.cproject"
+                 data-name="ArduCopter-3.2.1-apm-px4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.2.1-apm-px4">ArduCopter-3.2.1-apm-px4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.5-apm/eclipse.cproject"
+                 data-name="ArduCopter-3.1.5-apm"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.5-apm">ArduCopter-3.1.5-apm</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.5/eclipse.cproject"
+                 data-name="ArduCopter-3.1.5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.5">ArduCopter-3.1.5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc8/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc8"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc8">ArduCopter-3.1.0-rc8</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc7/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc7"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc7">ArduCopter-3.1.0-rc7</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc6/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc6"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc6">ArduCopter-3.1.0-rc6</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc5/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc5">ArduCopter-3.1.0-rc5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc4/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc4">ArduCopter-3.1.0-rc4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc3/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc3">ArduCopter-3.1.0-rc3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc2/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc2">ArduCopter-3.1.0-rc2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0-rc1/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0-rc1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0-rc1">ArduCopter-3.1.0-rc1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.1.0/eclipse.cproject"
+                 data-name="ArduCopter-3.1.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.1.0">ArduCopter-3.1.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0-rc5/eclipse.cproject"
+                 data-name="ArduCopter-3.0-rc5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0-rc5">ArduCopter-3.0-rc5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0-rc4/eclipse.cproject"
+                 data-name="ArduCopter-3.0-rc4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0-rc4">ArduCopter-3.0-rc4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0-rc3/eclipse.cproject"
+                 data-name="ArduCopter-3.0-rc3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0-rc3">ArduCopter-3.0-rc3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0-rc2/eclipse.cproject"
+                 data-name="ArduCopter-3.0-rc2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0-rc2">ArduCopter-3.0-rc2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0-rc1/eclipse.cproject"
+                 data-name="ArduCopter-3.0-rc1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0-rc1">ArduCopter-3.0-rc1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0.1-rc2/eclipse.cproject"
+                 data-name="ArduCopter-3.0.1-rc2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0.1-rc2">ArduCopter-3.0.1-rc2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-3.0.1-rc1/eclipse.cproject"
+                 data-name="ArduCopter-3.0.1-rc1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-3.0.1-rc1">ArduCopter-3.0.1-rc1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9-release/eclipse.cproject"
+                 data-name="ArduCopter-2.9-release"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9-release">ArduCopter-2.9-release</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9-rc4/eclipse.cproject"
+                 data-name="ArduCopter-2.9-rc4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9-rc4">ArduCopter-2.9-rc4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9-rc3/eclipse.cproject"
+                 data-name="ArduCopter-2.9-rc3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9-rc3">ArduCopter-2.9-rc3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9-rc2/eclipse.cproject"
+                 data-name="ArduCopter-2.9-rc2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9-rc2">ArduCopter-2.9-rc2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9-rc1/eclipse.cproject"
+                 data-name="ArduCopter-2.9-rc1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9-rc1">ArduCopter-2.9-rc1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9.1b/eclipse.cproject"
+                 data-name="ArduCopter-2.9.1b"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9.1b">ArduCopter-2.9.1b</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.9.1/eclipse.cproject"
+                 data-name="ArduCopter-2.9.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.9.1">ArduCopter-2.9.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.8.1/eclipse.cproject"
+                 data-name="ArduCopter-2.8.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.8.1">ArduCopter-2.8.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.8/eclipse.cproject"
+                 data-name="ArduCopter-2.8"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.8">ArduCopter-2.8</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.4-Gamma/eclipse.cproject"
+                 data-name="ArduCopter-2.7.4-Gamma"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.4-Gamma">ArduCopter-2.7.4-Gamma</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.4-Epsilon/eclipse.cproject"
+                 data-name="ArduCopter-2.7.4-Epsilon"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.4-Epsilon">ArduCopter-2.7.4-Epsilon</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.4-Delta/eclipse.cproject"
+                 data-name="ArduCopter-2.7.4-Delta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.4-Delta">ArduCopter-2.7.4-Delta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.4-Beta/eclipse.cproject"
+                 data-name="ArduCopter-2.7.4-Beta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.4-Beta">ArduCopter-2.7.4-Beta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.3/eclipse.cproject"
+                 data-name="ArduCopter-2.7.3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.3">ArduCopter-2.7.3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.2/eclipse.cproject"
+                 data-name="ArduCopter-2.7.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.2">ArduCopter-2.7.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7.1/eclipse.cproject"
+                 data-name="ArduCopter-2.7.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7.1">ArduCopter-2.7.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.7/eclipse.cproject"
+                 data-name="ArduCopter-2.7"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.7">ArduCopter-2.7</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.6-Gamma/eclipse.cproject"
+                 data-name="ArduCopter-2.6-Gamma"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.6-Gamma">ArduCopter-2.6-Gamma</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.6-Epsilon/eclipse.cproject"
+                 data-name="ArduCopter-2.6-Epsilon"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.6-Epsilon">ArduCopter-2.6-Epsilon</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.6-Delta/eclipse.cproject"
+                 data-name="ArduCopter-2.6-Delta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.6-Delta">ArduCopter-2.6-Delta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.6-Beta/eclipse.cproject"
+                 data-name="ArduCopter-2.6-Beta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.6-Beta">ArduCopter-2.6-Beta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.6/eclipse.cproject"
+                 data-name="ArduCopter-2.6"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.6">ArduCopter-2.6</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5.5-Beta/eclipse.cproject"
+                 data-name="ArduCopter-2.5.5-Beta"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5.5-Beta">ArduCopter-2.5.5-Beta</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5.5/eclipse.cproject"
+                 data-name="ArduCopter-2.5.5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5.5">ArduCopter-2.5.5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5.4/eclipse.cproject"
+                 data-name="ArduCopter-2.5.4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5.4">ArduCopter-2.5.4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5.3/eclipse.cproject"
+                 data-name="ArduCopter-2.5.3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5.3">ArduCopter-2.5.3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5.2/eclipse.cproject"
+                 data-name="ArduCopter-2.5.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5.2">ArduCopter-2.5.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5.1/eclipse.cproject"
+                 data-name="ArduCopter-2.5.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5.1">ArduCopter-2.5.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.5/eclipse.cproject"
+                 data-name="ArduCopter-2.5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.5">ArduCopter-2.5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/diydrones/ardupilot/tree/ArduCopter-2.4.1/eclipse.cproject"
+                 data-name="ArduCopter-2.4.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="ArduCopter-2.4.1">ArduCopter-2.4.1</a>
+            </div>
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <div class="btn-group right">
+      <a href="/diydrones/ardupilot/find/Copter-3.3"
+            class="js-show-file-finder btn btn-sm empty-icon tooltipped tooltipped-nw"
+            data-pjax
+            data-hotkey="t"
+            aria-label="Quickly jump between files">
+        <span class="octicon octicon-list-unordered"></span>
+      </a>
+      <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </div>
+
+    <div class="breadcrumb js-zeroclipboard-target">
+      <span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/diydrones/ardupilot/tree/Copter-3.3" class="" data-branch="Copter-3.3" data-pjax="true" itemscope="url"><span itemprop="title">ardupilot</span></a></span></span><span class="separator">/</span><strong class="final-path">eclipse.cproject</strong>
+    </div>
+  </div>
+
+
+  <div class="commit file-history-tease">
+    <div class="file-history-tease-header">
+        <img alt="@geeksville" class="avatar" height="24" src="https://avatars2.githubusercontent.com/u/225513?v=3&amp;s=48" width="24" />
+        <span class="author"><a href="/geeksville" rel="contributor">geeksville</a></span>
+        <time datetime="2015-07-28T07:11:45Z" is="relative-time">Jul 28, 2015</time>
+        <div class="commit-title">
+            <a href="/diydrones/ardupilot/commit/a3f240671fda14d9163b73651b00f95d584da5ac" class="message" data-pjax="true" title="Eclipse: template project files
+
+users should rename these files to .cproject and .project (i.e. remove
+the leading eclipse portion)
+
+Original work done by Kevin, heavily modified by Randy">Eclipse: template project files</a>
+        </div>
+    </div>
+
+    <div class="participation">
+      <p class="quickstat">
+        <a href="#blob_contributors_box" rel="facebox">
+          <strong>1</strong>
+           contributor
+        </a>
+      </p>
+      
+    </div>
+    <div id="blob_contributors_box" style="display:none">
+      <h2 class="facebox-header" id="facebox-header">Users who have contributed to this file</h2>
+      <ul class="facebox-user-list" id="facebox-description">
+          <li class="facebox-user-list-item">
+            <img alt="@geeksville" height="24" src="https://avatars2.githubusercontent.com/u/225513?v=3&amp;s=48" width="24" />
+            <a href="/geeksville">geeksville</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+<div class="file">
+  <div class="file-header">
+    <div class="file-actions">
+
+      <div class="btn-group">
+        <a href="/diydrones/ardupilot/raw/Copter-3.3/eclipse.cproject" class="btn btn-sm " id="raw-url">Raw</a>
+          <a href="/diydrones/ardupilot/blame/Copter-3.3/eclipse.cproject" class="btn btn-sm js-update-url-with-hash">Blame</a>
+        <a href="/diydrones/ardupilot/commits/Copter-3.3/eclipse.cproject" class="btn btn-sm " rel="nofollow">History</a>
+      </div>
+
+        <a class="octicon-btn tooltipped tooltipped-nw"
+           href="github-windows://openRepo/https://github.com/diydrones/ardupilot?branch=Copter-3.3&amp;filepath=eclipse.cproject"
+           aria-label="Open this file in GitHub Desktop"
+           data-ga-click="Repository, open with desktop, type:windows">
+            <span class="octicon octicon-device-desktop"></span>
+        </a>
+
+            <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/diydrones/ardupilot/edit/Copter-3.3/eclipse.cproject" class="inline-form" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="TobS8QTA+XyvZt5mh+rk7TQ9dpv5KyRIIBtaNKyMjYBwNJV8dgKt/7Deiz9wFK8AkMvKs+80r+qUA7kNf8rZKQ==" /></div>
+              <button class="octicon-btn tooltipped tooltipped-n" type="submit" aria-label="Edit the file in your fork of this project" data-hotkey="e" data-disable-with>
+                <span class="octicon octicon-pencil"></span>
+              </button>
+</form>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/diydrones/ardupilot/delete/Copter-3.3/eclipse.cproject" class="inline-form" data-form-nonce="5e30f1b3b4ff4318729167f33be6114bbe0d860c" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="khc7nGoff2FZ0P7LSntW5vhz/CL7A38l9NS1tRTUI8lH9Y16XeiROt8jAsJfyv2nZb6Z/Q4bIT72+TMFXbMecw==" /></div>
+            <button class="octicon-btn octicon-btn-danger tooltipped tooltipped-n" type="submit" aria-label="Delete this file in your fork of this project" data-disable-with>
+              <span class="octicon octicon-trashcan"></span>
+            </button>
+</form>    </div>
+
+    <div class="file-info">
+        160 lines (159 sloc)
+        <span class="file-info-divider"></span>
+      9.014 kB
+    </div>
+  </div>
+  
+
+  <div class="blob-wrapper data type-xml">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="4">
+      <tr>
+        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line">&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>1.0<span class="pl-pds">&quot;</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>UTF-8<span class="pl-pds">&quot;</span></span><span class="pl-e"> standalone</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>no<span class="pl-pds">&quot;</span></span>?&gt;</td>
+      </tr>
+      <tr>
+        <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="LC2" class="blob-code blob-code-inner js-file-line">&lt;?<span class="pl-ent">fileVersion</span> 4.0.0?&gt;&lt;<span class="pl-ent">cproject</span> <span class="pl-e">storage_type_id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.XmlProjectDescriptionStorage<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.settings<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line">		&lt;<span class="pl-ent">cconfiguration</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base.354374513<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="LC5" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">buildSystemId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.managedbuilder.core.configurationDataProvider<span class="pl-pds">&quot;</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base.354374513<span class="pl-pds">&quot;</span></span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.settings<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Default<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">externalSettings</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">extensions</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">extension</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ELF<span class="pl-pds">&quot;</span></span> <span class="pl-e">point</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.BinaryParser<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">extension</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.GASErrorParser<span class="pl-pds">&quot;</span></span> <span class="pl-e">point</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ErrorParser<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">extension</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.GmakeErrorParser<span class="pl-pds">&quot;</span></span> <span class="pl-e">point</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ErrorParser<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="LC11" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">extension</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.GLDErrorParser<span class="pl-pds">&quot;</span></span> <span class="pl-e">point</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ErrorParser<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">extension</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.CWDLocator<span class="pl-pds">&quot;</span></span> <span class="pl-e">point</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ErrorParser<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">extension</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.GCCErrorParser<span class="pl-pds">&quot;</span></span> <span class="pl-e">point</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ErrorParser<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line">				&lt;/<span class="pl-ent">extensions</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">storageModule</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdtBuildSystem<span class="pl-pds">&quot;</span></span> <span class="pl-e">version</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>4.0.0<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">configuration</span> <span class="pl-e">buildProperties</span>=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base.354374513<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Default<span class="pl-pds">&quot;</span></span> <span class="pl-e">parent</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.core.emptycfg<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line">					&lt;<span class="pl-ent">folderInfo</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base.354374513.892177930<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>/<span class="pl-pds">&quot;</span></span> <span class="pl-e">resourcePath</span>=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line">						&lt;<span class="pl-ent">toolChain</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base.526035570<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.toolchain.gnu.cross.base<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">option</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.option.gnu.cross.prefix.458442836<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Prefix<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.option.gnu.cross.prefix<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">option</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.option.gnu.cross.path.1219552670<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Path<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.option.gnu.cross.path<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">targetPlatform</span> <span class="pl-e">archList</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>all<span class="pl-pds">&quot;</span></span> <span class="pl-e">binaryParser</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.ELF<span class="pl-pds">&quot;</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.targetPlatform.gnu.cross.737405680<span class="pl-pds">&quot;</span></span> <span class="pl-e">isAbstract</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>false<span class="pl-pds">&quot;</span></span> <span class="pl-e">osList</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>all<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.targetPlatform.gnu.cross<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">builder</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.builder.gnu.cross.778361658<span class="pl-pds">&quot;</span></span> <span class="pl-e">managedBuildOn</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>false<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Gnu Make Builder.Default<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.builder.gnu.cross<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">tool</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.c.compiler.768396405<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Cross GCC Compiler<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.c.compiler<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line">								&lt;<span class="pl-ent">inputType</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.c.compiler.input.281326927<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.c.compiler.input<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line">							&lt;/<span class="pl-ent">tool</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">tool</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.cpp.compiler.1282124949<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Cross G++ Compiler<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.cpp.compiler<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line">								&lt;<span class="pl-ent">inputType</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cpp.compiler.input.1533331666<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cpp.compiler.input<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line">							&lt;/<span class="pl-ent">tool</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">tool</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.c.linker.1121841264<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Cross GCC Linker<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.c.linker<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">tool</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.cpp.linker.1530575069<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Cross G++ Linker<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.cpp.linker<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line">								&lt;<span class="pl-ent">inputType</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cpp.linker.input.1550437110<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cpp.linker.input<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line">									&lt;<span class="pl-ent">additionalInput</span> <span class="pl-e">kind</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>additionalinputdependency<span class="pl-pds">&quot;</span></span> <span class="pl-e">paths</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>$(USER_OBJS)<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">									&lt;<span class="pl-ent">additionalInput</span> <span class="pl-e">kind</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>additionalinput<span class="pl-pds">&quot;</span></span> <span class="pl-e">paths</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>$(LIBS)<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line">								&lt;/<span class="pl-ent">inputType</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">							&lt;/<span class="pl-ent">tool</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="LC37" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">tool</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.archiver.1425628759<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Cross GCC Archiver<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.archiver<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="LC38" class="blob-code blob-code-inner js-file-line">							&lt;<span class="pl-ent">tool</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.assembler.941717398<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>Cross GCC Assembler<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.cross.assembler<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">								&lt;<span class="pl-ent">inputType</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.assembler.input.968458728<span class="pl-pds">&quot;</span></span> <span class="pl-e">superClass</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdt.managedbuild.tool.gnu.assembler.input<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">							&lt;/<span class="pl-ent">tool</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">						&lt;/<span class="pl-ent">toolChain</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">					&lt;/<span class="pl-ent">folderInfo</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">				&lt;/<span class="pl-ent">configuration</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">storageModule</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.externalSettings<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line">		&lt;/<span class="pl-ent">cconfiguration</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">	&lt;/<span class="pl-ent">storageModule</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>cdtBuildSystem<span class="pl-pds">&quot;</span></span> <span class="pl-e">version</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>4.0.0<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="LC49" class="blob-code blob-code-inner js-file-line">		&lt;<span class="pl-ent">project</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ardupilot.null.967258070<span class="pl-pds">&quot;</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ardupilot<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">	&lt;/<span class="pl-ent">storageModule</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>scannerConfiguration<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">		&lt;<span class="pl-ent">autodiscovery</span> <span class="pl-e">enabled</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> <span class="pl-e">problemReportingEnabled</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> <span class="pl-e">selectedProfileId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">	&lt;/<span class="pl-ent">storageModule</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.core.LanguageSettingsProviders<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>refreshScope<span class="pl-pds">&quot;</span></span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">	&lt;<span class="pl-ent">storageModule</span> <span class="pl-e">moduleId</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.make.core.buildtargets<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">		&lt;<span class="pl-ent">buildTargets</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-v2<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduCopter<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-v2&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-cleandep<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduCopter<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="LC67" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-cleandep&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>clean<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduCopter<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;clean&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
+        <td id="LC80" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-clean<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduCopter<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
+        <td id="LC82" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-clean&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
+        <td id="LC84" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
+        <td id="LC86" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-v2<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduPlane<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-v2&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>clean<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduPlane<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
+        <td id="LC96" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
+        <td id="LC98" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;clean&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
+        <td id="LC99" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
+        <td id="LC100" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
+        <td id="LC101" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
+        <td id="LC102" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
+        <td id="LC103" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-clean<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduPlane<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-clean&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-cleandep<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>ArduPlane<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-cleandep&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-v2<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>AntennaTracker<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-v2&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-v2<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>APMrover2<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
+        <td id="LC128" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-v2&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
+        <td id="LC130" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>clean<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>APMrover2<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;clean&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-clean<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>APMrover2<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
+        <td id="LC144" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-clean&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
+        <td id="LC145" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
+        <td id="LC146" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
+        <td id="LC147" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
+        <td id="LC148" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
+        <td id="LC149" class="blob-code blob-code-inner js-file-line">			&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>px4-cleandep<span class="pl-pds">&quot;</span></span> <span class="pl-e">path</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>APMrover2<span class="pl-pds">&quot;</span></span> <span class="pl-e">targetID</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>org.eclipse.cdt.build.MakeTargetBuilder<span class="pl-pds">&quot;</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
+        <td id="LC150" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildCommand</span>&gt;make&lt;/<span class="pl-ent">buildCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
+        <td id="LC151" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildArguments</span>/&gt;</td>
+      </tr>
+      <tr>
+        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
+        <td id="LC152" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">buildTarget</span>&gt;px4-cleandep&lt;/<span class="pl-ent">buildTarget</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
+        <td id="LC153" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">stopOnError</span>&gt;true&lt;/<span class="pl-ent">stopOnError</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
+        <td id="LC154" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">useDefaultCommand</span>&gt;true&lt;/<span class="pl-ent">useDefaultCommand</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
+        <td id="LC155" class="blob-code blob-code-inner js-file-line">				&lt;<span class="pl-ent">runAllBuilders</span>&gt;true&lt;/<span class="pl-ent">runAllBuilders</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
+        <td id="LC156" class="blob-code blob-code-inner js-file-line">			&lt;/<span class="pl-ent">target</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
+        <td id="LC157" class="blob-code blob-code-inner js-file-line">		&lt;/<span class="pl-ent">buildTargets</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
+        <td id="LC158" class="blob-code blob-code-inner js-file-line">	&lt;/<span class="pl-ent">storageModule</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
+        <td id="LC159" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">cproject</span>&gt;</td>
+      </tr>
+</table>
+
+  </div>
+
+</div>
+
+<a href="#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" style="display:none">Jump to Line</a>
+<div id="jump-to-line" style="display:none">
+  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="" class="js-jump-to-line-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <input class="linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
+    <button type="submit" class="btn">Go</button>
+</form></div>
+
+        </div>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+  </div>
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+        <li><a href="https://github.com/pricing" data-ga-click="Footer, go to pricing, text:pricing">Pricing</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2015 <span title="0.12214s from github-fe117-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder="" aria-label=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w"
+      aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-df03cb524192fbb325ef264ca1bdee425481db0aadf702dd6d209d1fa0ccf572.js"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github/index-7ad9ec1529197fb7166ebb99047b98020ffb555db630bb9b9c7a4f07aa05f748.js"></script>
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <span class="octicon octicon-alert"></span>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+  </body>
+</html>
+
