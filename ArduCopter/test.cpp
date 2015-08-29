@@ -21,6 +21,7 @@ static const struct Menu::command test_menu_commands[] PROGMEM = {
 #endif
 #if HIL_MODE == HIL_MODE_DISABLED
     {"rangefinder",         MENU_FUNC(test_sonar)},
+    {"rcinput",             MENU_FUNC(test_rcinput)},
 #endif
 };
 
@@ -31,6 +32,50 @@ int8_t Copter::test_mode(uint8_t argc, const Menu::arg *argv)
 {
     test_menu.run();
     return 0;
+}
+
+int8_t Copter::test_rcinput(uint8_t argc, const Menu::arg *argv)
+{
+//    const AP_HAL::HAL& hal = AP_HAL_BOARD_DRIVER;
+
+    #define MAX_CHANNELS 16
+
+    uint8_t max_channels = 0;
+    uint16_t last_value[MAX_CHANNELS];
+
+    cliSerial->printf_P(PSTR("Starting RCInput test\n"));
+
+    while(1) {
+        bool changed = false;
+        uint8_t nchannels = hal.rcin->num_channels();
+        if (nchannels > MAX_CHANNELS) {
+            nchannels = MAX_CHANNELS;
+        }
+        for (uint8_t i=0; i<nchannels; i++) {
+            uint16_t v = hal.rcin->read(i);
+            if (abs(last_value[i] - v)>10.0f) {
+                changed = true;
+                last_value[i] = v;
+            }
+            if (i > max_channels) {
+                max_channels = i;
+            }
+        }
+        if (changed) {
+            for (uint8_t i=0; i<max_channels; i++) {
+                cliSerial->printf_P(PSTR("%2u:%04u || "), (unsigned)i+1, (unsigned)last_value[i]);
+            }
+            cliSerial->printf_P(PSTR("\n"));
+        }
+        delay(1000);
+
+        if(cliSerial->available() > 0) {
+            return (0);
+        }
+    }
+    return 0;
+
+
 }
 
 #if HIL_MODE == HIL_MODE_DISABLED

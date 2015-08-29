@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # home location lat, lon, alt, heading
-LOCATION="CMAC"
+# LOCATION="CMAC"
+LOCATION="MIT"
 TRACKER_LOCATION="CMAC_PILOTSBOX"
 VEHICLE=""
 BUILD_TARGET="sitl"
@@ -445,7 +446,7 @@ if [ $USE_MAVLINK_GIMBAL == 1 ]; then
 fi
 
 if [ -f /usr/bin/cygstart ]; then
-    cygstart -w "/cygdrive/c/Program Files (x86)/MAVProxy/mavproxy.exe" $options --cmd="$extra_cmd" $*
+    cygstart -w "/cygdrive/d/Program Files/MAVProxy/mavproxy.exe" $options --cmd="$extra_cmd" $*
 else
     mavproxy.py $options --cmd="$extra_cmd" $*
 fi

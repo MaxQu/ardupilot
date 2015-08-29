@@ -979,6 +979,7 @@ public:
     int8_t test_relay(uint8_t argc, const Menu::arg *argv);
     int8_t test_shell(uint8_t argc, const Menu::arg *argv);
     int8_t test_sonar(uint8_t argc, const Menu::arg *argv);
+    int8_t test_rcinput(uint8_t argc, const Menu::arg *argv);
 
     int8_t reboot_board(uint8_t argc, const Menu::arg *argv);
 };
