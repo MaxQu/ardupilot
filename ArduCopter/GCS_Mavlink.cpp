@@ -4,6 +4,7 @@
 
 // default sensors are present and healthy: gyro, accelerometer, barometer, rate_control, attitude_stabilization, yaw_position, altitude control, x/y position control, motor_control
 #define MAVLINK_SENSOR_PRESENT_DEFAULT (MAV_SYS_STATUS_SENSOR_3D_GYRO | MAV_SYS_STATUS_SENSOR_3D_ACCEL | MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE | MAV_SYS_STATUS_SENSOR_ANGULAR_RATE_CONTROL | MAV_SYS_STATUS_SENSOR_ATTITUDE_STABILIZATION | MAV_SYS_STATUS_SENSOR_YAW_POSITION | MAV_SYS_STATUS_SENSOR_Z_ALTITUDE_CONTROL | MAV_SYS_STATUS_SENSOR_XY_POSITION_CONTROL | MAV_SYS_STATUS_SENSOR_MOTOR_OUTPUTS | MAV_SYS_STATUS_AHRS)
+//#define PI_FLOAT = 3.14159265358979f
 
 void Copter::gcs_send_heartbeat(void)
 {
@@ -1187,6 +1188,25 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
             }
             break;
 
+        case MAV_CMD_CONDITION_YAW_RATE:
+            // param2 : speed during change [deg per second]
+            if ((packet.param2 >= 0.0f)   &&
+                (packet.param2 <= 360.0f)) {
+                float target_yaw_rate = 0;
+                target_yaw_rate = copter.get_pilot_desired_yaw_rate((int16_t) (packet.param2*100.0f)); // convert to centi-degree
+                if (!is_zero(target_yaw_rate)) {
+                    copter.set_auto_yaw_mode(AUTO_YAW_HOLD);
+                    copter.attitude_control.angle_ef_roll_pitch_rate_ef_yaw(copter.pos_control.get_roll(), copter.pos_control.get_pitch(), 500.0f);
+                    result = MAV_RESULT_ACCEPTED;
+                } else {
+                    result = MAV_RESULT_FAILED;
+                }
+
+            } else {
+                result = MAV_RESULT_FAILED;
+            }
+            break;
+
         case MAV_CMD_DO_CHANGE_SPEED:
             // param1 : unused
             // param2 : new speed in m/s
@@ -1522,6 +1542,119 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
             // convert to cm
             vel_vector = Vector3f(packet.vx * 100.0f, packet.vy * 100.0f, -packet.vz * 100.0f);
             // rotate to body-frame if necessary
+            if (packet.coordinate_frame == MAV_FRAME_BODY_NED || packet.coordinate_frame == MAV_FRAME_BODY_OFFSET_NED) {
+                copter.rotate_body_frame_to_NE(vel_vector.x, vel_vector.y);
+            }
+        }
+
+        // send request
+        if (!pos_ignore && !vel_ignore && acc_ignore) {
+            copter.guided_set_destination_posvel(pos_vector, vel_vector);
+        } else if (pos_ignore && !vel_ignore && acc_ignore) {
+            copter.guided_set_velocity(vel_vector);
+        } else if (!pos_ignore && vel_ignore && acc_ignore) {
+            copter.guided_set_destination(pos_vector);
+        } else {
+            result = MAV_RESULT_FAILED;
+        }
+
+        break;
+    }
+
+    case MAVLINK_MSG_ID_GCS_GESTURE_YPR_LOCAL_BF:     // MAV ID: 220
+    {
+        // decode packet
+        mavlink_gcs_gesture_ypr_local_bf_t packet;
+        mavlink_msg_gcs_gesture_ypr_local_bf_decode(msg, &packet);
+
+        // exit if vehicle is not in Guided mode or Auto-Guided mode
+        if ((copter.control_mode != GUIDED) && !(copter.control_mode == AUTO && copter.auto_mode == Auto_NavGuided)) {
+            break;
+        }
+
+        // check for supported coordinate frames
+        if (packet.coordinate_frame != MAV_FRAME_LOCAL_NED &&
+            packet.coordinate_frame != MAV_FRAME_LOCAL_OFFSET_NED &&
+            packet.coordinate_frame != MAV_FRAME_BODY_NED &&
+            packet.coordinate_frame != MAV_FRAME_BODY_OFFSET_NED) {
+            break;
+        }
+
+        bool pos_ignore      = packet.type_mask & MAVLINK_SET_POS_TYPE_MASK_POS_IGNORE;
+        bool vel_ignore      = packet.type_mask & MAVLINK_SET_POS_TYPE_MASK_VEL_IGNORE;
+        bool acc_ignore      = packet.type_mask & MAVLINK_SET_POS_TYPE_MASK_ACC_IGNORE;
+
+        /*
+         * for future use:
+         * bool force           = packet.type_mask & MAVLINK_SET_POS_TYPE_MASK_FORCE;
+         * bool yaw_ignore      = packet.type_mask & MAVLINK_SET_POS_TYPE_MASK_YAW_IGNORE;
+         * bool yaw_rate_ignore = packet.type_mask & MAVLINK_SET_POS_TYPE_MASK_YAW_RATE_IGNORE;
+         */
+
+        // prepare position
+        Vector3f pos_vector;
+        if (!pos_ignore) {
+            // convert to cm
+            pos_vector = Vector3f(packet.x * 100.0f, packet.y * 100.0f, -packet.z * 100.0f);
+            // rotate to body-frame if necessary
+            if (packet.coordinate_frame == MAV_FRAME_BODY_NED ||
+                packet.coordinate_frame == MAV_FRAME_BODY_OFFSET_NED) {
+                copter.rotate_body_frame_to_NE(pos_vector.x, pos_vector.y);
+            }
+            // add body offset if necessary
+            if (packet.coordinate_frame == MAV_FRAME_LOCAL_OFFSET_NED ||
+                packet.coordinate_frame == MAV_FRAME_BODY_NED ||
+                packet.coordinate_frame == MAV_FRAME_BODY_OFFSET_NED) {
+                pos_vector += copter.inertial_nav.get_position();
+            } else {
+                // convert from alt-above-home to alt-above-ekf-origin
+                pos_vector.z = copter.pv_alt_above_origin(pos_vector.z);
+            }
+        }
+
+        // prepare velocity
+        Vector3f vel_vector;
+        if (!vel_ignore) {
+            // convert to cm
+            //vel_vector = Vector3f(packet.yaw * 100.0f, packet.pitch * 100.0f, -packet.roll * 100.0f);
+            //the initialization is constant
+            //these parameter should be declared in the parameter list
+            float yaw_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
+            float pitch_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
+            float roll_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
+            int gest_sign;
+
+            vel_vector = Vector3f(0.0f, 0.0f, 0.0f);
+
+            if (fabs(packet.yaw-packet.lyaw) >= yaw_deadzone) {
+                gest_sign = ((packet.yaw-packet.lyaw) > 0) ? 1 : (((packet.yaw-packet.lyaw) < 0) ? -1 : 0);
+                vel_vector.y = (-(packet.yaw-packet.lyaw-gest_sign*yaw_deadzone)/yaw_deadzone) *100.0f; //in cm/sec
+            }
+            if (fabs(packet.pitch-packet.lpitch) >= pitch_deadzone) {
+                gest_sign = ((packet.pitch-packet.lpitch) > 0) ? 1 : (((packet.pitch-packet.lpitch) < 0) ? -1 : 0);
+                vel_vector.x = ((packet.pitch-packet.lpitch-gest_sign*pitch_deadzone)/pitch_deadzone) *100.0f; //in cm/sec
+            }
+
+            int16_t override_values[8];
+            override_values[0] = 0;
+            override_values[1] = 0;
+            override_values[2] = 0;
+            override_values[3] = 0;
+            override_values[4] = 0;
+            override_values[5] = 0;
+            override_values[6] = 0;
+            override_values[7] = 0;
+            if (fabs(packet.roll-packet.lroll) >= roll_deadzone) {
+                // vel_vector.z = ((packet.roll-packet.lroll)/roll_deadzone) *100.0f; //in cm/sec
+                gest_sign = ((packet.roll-packet.lroll) > 0) ? 1 : (((packet.roll-packet.lroll) < 0) ? -1 : 0);
+                override_values[3]= (int16_t) (1500.0f-((packet.roll-packet.lroll-gest_sign*roll_deadzone)/roll_deadzone)*50.0f);
+            }
+            // record that rc are overwritten so we can trigger a failsafe if we lose contact with groundstation
+            copter.failsafe.rc_override_active = hal.rcin->set_overrides(override_values, 8);
+            // a RC override message is considered to be a 'heartbeat' from the ground station for failsafe purposes
+            copter.failsafe.last_heartbeat_ms = hal.scheduler->millis();
+            // rotate to body-frame if necessary
+
             if (packet.coordinate_frame == MAV_FRAME_BODY_NED || packet.coordinate_frame == MAV_FRAME_BODY_OFFSET_NED) {
                 copter.rotate_body_frame_to_NE(vel_vector.x, vel_vector.y);
             }
