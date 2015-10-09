@@ -1622,17 +1622,22 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
             float yaw_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
             float pitch_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
             float roll_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
+            float maxXVel = 150.0f;
+            float maxYVel = 150.0f;
+            float maxRCYaw = 150.0f;
             int gest_sign;
 
             vel_vector = Vector3f(0.0f, 0.0f, 0.0f);
 
             if (fabs(packet.yaw-packet.lyaw) >= yaw_deadzone) {
                 gest_sign = ((packet.yaw-packet.lyaw) > 0) ? 1 : (((packet.yaw-packet.lyaw) < 0) ? -1 : 0);
-                vel_vector.y = (-(packet.yaw-packet.lyaw-gest_sign*yaw_deadzone)/yaw_deadzone) *100.0f; //in cm/sec
+                vel_vector.y = (-(packet.yaw-packet.lyaw-gest_sign*yaw_deadzone)/yaw_deadzone) *0.8f * 100.0f; //in cm/sec
+                if (vel_vector.y>maxYVel) {vel_vector.y=maxYVel;} else if (vel_vector.y<-maxYVel) {vel_vector.y=-maxYVel;}
             }
             if (fabs(packet.pitch-packet.lpitch) >= pitch_deadzone) {
                 gest_sign = ((packet.pitch-packet.lpitch) > 0) ? 1 : (((packet.pitch-packet.lpitch) < 0) ? -1 : 0);
-                vel_vector.x = ((packet.pitch-packet.lpitch-gest_sign*pitch_deadzone)/pitch_deadzone) *100.0f; //in cm/sec
+                vel_vector.x = (-(packet.pitch-packet.lpitch-gest_sign*pitch_deadzone)/pitch_deadzone) *0.8f * 100.0f; //in cm/sec
+                if (vel_vector.x>maxXVel) {vel_vector.x=maxXVel;} else if (vel_vector.x<-maxXVel) {vel_vector.x=-maxXVel;}
             }
 
             int16_t override_values[8];
@@ -1647,7 +1652,13 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
             if (fabs(packet.roll-packet.lroll) >= roll_deadzone) {
                 // vel_vector.z = ((packet.roll-packet.lroll)/roll_deadzone) *100.0f; //in cm/sec
                 gest_sign = ((packet.roll-packet.lroll) > 0) ? 1 : (((packet.roll-packet.lroll) < 0) ? -1 : 0);
-                override_values[3]= (int16_t) (1500.0f-((packet.roll-packet.lroll-gest_sign*roll_deadzone)/roll_deadzone)*50.0f);
+                float ch4_value = 1500.0f+((packet.roll-packet.lroll-gest_sign*roll_deadzone)/roll_deadzone) *0.4f * 100.0f;
+                if (ch4_value < (1500.0f-maxRCYaw)) {
+                    ch4_value = 1500.0f-maxRCYaw;
+                } else if (ch4_value > (1500.0f+maxRCYaw)) {
+                    ch4_value = 1500.0f+maxRCYaw;
+                }
+                override_values[3]= (int16_t) (ch4_value);
             }
             // record that rc are overwritten so we can trigger a failsafe if we lose contact with groundstation
             copter.failsafe.rc_override_active = hal.rcin->set_overrides(override_values, 8);
