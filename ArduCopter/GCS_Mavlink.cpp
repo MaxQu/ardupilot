@@ -1622,21 +1622,21 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
             float yaw_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
             float pitch_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
             float roll_deadzone = (float) ((10.0f * M_PI)/180.0f); // deadzone in rad
-            float maxXVel = 150.0f;
-            float maxYVel = 150.0f;
-            float maxRCYaw = 150.0f;
+            float maxXVel = 300.0f; //in future needs to put into param group
+            float maxYVel = 300.0f; //in future needs to put into param group
+            float maxRCYaw = 250.0f; //in future needs to put into param group
             int gest_sign;
 
             vel_vector = Vector3f(0.0f, 0.0f, 0.0f);
 
             if (fabs(packet.yaw-packet.lyaw) >= yaw_deadzone) {
                 gest_sign = ((packet.yaw-packet.lyaw) > 0) ? 1 : (((packet.yaw-packet.lyaw) < 0) ? -1 : 0);
-                vel_vector.y = (-(packet.yaw-packet.lyaw-gest_sign*yaw_deadzone)/yaw_deadzone) *0.8f * 100.0f; //in cm/sec
+                vel_vector.y = (-(packet.yaw-packet.lyaw-gest_sign*yaw_deadzone)/yaw_deadzone) *0.5f * 100.0f; //in cm/sec
                 if (vel_vector.y>maxYVel) {vel_vector.y=maxYVel;} else if (vel_vector.y<-maxYVel) {vel_vector.y=-maxYVel;}
             }
             if (fabs(packet.pitch-packet.lpitch) >= pitch_deadzone) {
                 gest_sign = ((packet.pitch-packet.lpitch) > 0) ? 1 : (((packet.pitch-packet.lpitch) < 0) ? -1 : 0);
-                vel_vector.x = (-(packet.pitch-packet.lpitch-gest_sign*pitch_deadzone)/pitch_deadzone) *0.8f * 100.0f; //in cm/sec
+                vel_vector.x = (-(packet.pitch-packet.lpitch-gest_sign*pitch_deadzone)/pitch_deadzone) *0.5f * 100.0f; //in cm/sec
                 if (vel_vector.x>maxXVel) {vel_vector.x=maxXVel;} else if (vel_vector.x<-maxXVel) {vel_vector.x=-maxXVel;}
             }
 
